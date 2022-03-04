@@ -1,3 +1,4 @@
+import 'package:block_house_calculator/pages/elements/general_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -23,10 +24,13 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      /*body: Container(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
-          child:,
-        ),*/
+      body: ListView(
+        children: [
+          GeneralButton(text: "кнопка 1"),
+          GeneralButton(text: "кнопка 2"),
+          GeneralButton(text: "кнопка 3")
+        ],
+      )
 
     );
   }
