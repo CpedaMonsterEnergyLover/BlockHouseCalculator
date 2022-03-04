@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HousePage extends StatelessWidget {
-  const HousePage({Key? key}) : super(key: key);
+  HousePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

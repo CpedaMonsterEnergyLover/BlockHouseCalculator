@@ -13,10 +13,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<House> houses = [House(), House(), House()];
+  List<House> houses = [];
 
   @override
   Widget build(BuildContext context) {
+    houses = [House(), House(), House()];
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("BlockHouseCalculator"),
@@ -37,7 +39,7 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: [
           const Center(child: Text("Тут будет список домов")),
-          ListView.builder(
+/*          ListView.builder(
               padding: const EdgeInsets.all(8),
               itemCount: houses.length,
               itemBuilder: (BuildContext context, int index) {
@@ -51,13 +53,13 @@ class _HomePageState extends State<HomePage> {
                     )
                 );
               }
-          ),
+          ),*/
           GeneralButton(
             text: "Добавить дом",
             callback: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const HousePage()),
+                MaterialPageRoute(builder: (context) => HousePage()),
               );
             },
           ),
