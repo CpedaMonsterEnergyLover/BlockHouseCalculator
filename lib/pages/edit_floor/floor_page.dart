@@ -1,3 +1,5 @@
+
+import 'package:block_house_calculator/pages/elements/general_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +18,36 @@ class FloorPage extends StatelessWidget {
             },
           ),
         ),
-        body: const Text("Написать страницу"),
+        body: ListView( children :[
+          Container(child: const SizedBox(width: 300, height:300,
+              child: Align(alignment : Alignment.center,
+                  child: Text('Здесь будет рисовалка надеюсь мы ее сможем сделать', style: TextStyle(fontSize: 20), textAlign: TextAlign.center)
+              )
+          ),
+              decoration: const BoxDecoration(
+              color: Colors.blueGrey,
+            ),
+          ),
+          GeneralButton(
+            text: "Добавить Стену", callback: () {
+
+            },
+          ),
+          GeneralButton(
+            text: "Добавить Дверь",
+            callback: () {
+
+            },
+          ),
+          GeneralButton(
+            text: "Добавить Окно",
+            callback: () {
+
+            },
+          ),]
+    ),
     );
+
   }
 
 }
