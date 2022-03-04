@@ -26,9 +26,9 @@ class Home extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          GeneralButton(text: "кнопка 1"),
-          GeneralButton(text: "кнопка 2"),
-          GeneralButton(text: "кнопка 3")
+          GeneralButton(text: "Добавить дом"),
+          GeneralButton(text: "Список домов"),
+          GeneralButton(text: "Пример")
         ],
       )
 
