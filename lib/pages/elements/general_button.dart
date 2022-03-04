@@ -12,14 +12,20 @@ class GeneralButton extends StatelessWidget{
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: callback,
-      child: SizedBox(
-        height: 30,
-        child: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(text),
-            ],
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          color: const Color(0xFFCFFAFF),
+        ),
+        child: SizedBox(
+          height: 50,
+          child: Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(text),
+              ],
+            ),
           ),
         ),
       ),
