@@ -39,21 +39,23 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         children: [
           const Center(child: Text("Тут будет список домов")),
-/*          ListView.builder(
-              padding: const EdgeInsets.all(8),
-              itemCount: houses.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Container(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Дом "),
-                      ],
-                    )
-                );
-              }
-          ),*/
+          Container(
+            child: ListView.builder(
+                padding: const EdgeInsets.all(8),
+                itemCount: houses.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                      padding: EdgeInsets.symmetric(vertical: 10),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Дом "),
+                        ],
+                      )
+                  );
+                }
+            ),
+          ),
           GeneralButton(
             text: "Добавить дом",
             callback: () {
