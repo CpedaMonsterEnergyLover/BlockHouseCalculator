@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Learn SQL',
+      title: 'BlockHouseCalculator',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

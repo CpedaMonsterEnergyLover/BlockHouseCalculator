@@ -31,40 +31,48 @@ class _HomePageState extends State<HomePage> {
               decoration: BoxDecoration(
                 color: Colors.blue,
               ),
-              child: Text('Drawer Header'),
+              child: Text('Настройки'),
             ),
           ],
         ),
       ),
       body: ListView(
         children: [
-          const Center(child: Text("Тут будет список домов")),
-          Container(
-            child: ListView.builder(
-                padding: const EdgeInsets.all(8),
-                itemCount: houses.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                      padding: EdgeInsets.symmetric(vertical: 10),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Дом "),
-                        ],
-                      )
-                  );
-                }
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
+            child: const Center(child: Text("Список домов")),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(
+                  color: Colors.black12
+                ),
+              ),
+              child: Column(
+                children: [
+                  ...houses.map((e) => GeneralButton(text: e.name, callback: () => {}))
+                ],
+
+              ),
             ),
           ),
+
           GeneralButton(
             text: "Добавить дом",
             callback: () {
-              Navigator.push(
+  /*Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => HousePage()),
-              );
-            },
-          ),
+              );*/
+
+            setState(() {
+              houses = [];
+            });
+  }),
+
           GeneralButton(
             text: "Пример",
             callback: () {  },)
