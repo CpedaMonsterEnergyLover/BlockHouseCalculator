@@ -33,7 +33,7 @@ class _HousePageState extends State<HousePage> {
           icon: const Icon(Icons.edit_outlined),
           onPressed: () {
             setState(() {
-              AbcDialog.inputDialog(context, widget.house);
+              widget.house.name = AbcDialog.inputDialog(context, widget.house);
             });
           },
         ),],
