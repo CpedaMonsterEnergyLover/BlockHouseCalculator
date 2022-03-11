@@ -24,6 +24,23 @@ class HousePage extends StatelessWidget {
       ),
       body:  ListView(
         children: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                border: Border.all(
+                    color: Colors.black12
+                ),
+              ),
+              child: Column(
+                children: [
+                  ...house.floors.map((e) => GeneralButton(text: "Этаж # ", callback: () => {}))
+                ],
+
+              ),
+            ),
+          ),
           const Text("Название дома"),
           const Text("Всего этажей: 0"),
           const Text("Тут будет список этажей"),
