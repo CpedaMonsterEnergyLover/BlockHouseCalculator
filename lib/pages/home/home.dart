@@ -1,4 +1,5 @@
 import 'package:block_house_calculator/pages/edit_house/house_page.dart';
+import 'package:block_house_calculator/pages/elements/dialog.dart';
 import 'package:block_house_calculator/pages/elements/general_button.dart';
 import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:flutter/cupertino.dart';
@@ -58,7 +59,15 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(builder: (context) => HousePage(house: e)),
                   )
                   },
-                    longPressCallback: () {},))
+                    longPressCallback: () {
+                      AbcDialog.buildConfirmDialog(
+                          context, "Удаление дома", "Вы уверены что хотите удалить дом?",
+                          "Да", "Нет", () {
+                        setState(() {
+                          houses.removeAt(houses.indexOf(e));
+                        });
+                      });
+                    },))
                 ],
 
               ),

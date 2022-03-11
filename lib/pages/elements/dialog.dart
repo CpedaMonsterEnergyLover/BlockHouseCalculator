@@ -13,7 +13,7 @@ class AbcDialog {
               alignment: Alignment.bottomCenter,
               child: Container(
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(32.0),
@@ -26,14 +26,14 @@ class AbcDialog {
                       padding: const EdgeInsets.all(16.0),
                       child: Material(
                           child: Text(title,
-                              style: TextStyle(
-                                  fontSize: 14.0, color: Colors.black))),
+                              style: const TextStyle(
+                                  fontSize: 18.0, color: Colors.black))),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Material(
                           child: Text(subtitle,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 14.0, color: Colors.black))),
                     ),
                     Padding(
@@ -45,7 +45,8 @@ class AbcDialog {
                                 callback();
                                 Navigator.pop(context);
                               },
-                              longPressCallback: () {} ),
+                              longPressCallback: () {},
+                          color: Colors.green),
                     ),
                     ),
                     Padding(
@@ -56,7 +57,8 @@ class AbcDialog {
                             callback: () {
                               Navigator.pop(context);
                             },
-                            longPressCallback: () {} ),
+                            longPressCallback: () {},
+                        color: Colors.red),
                       ),
                     )
                   ],

@@ -6,8 +6,10 @@ class GeneralButton extends StatelessWidget{
   final String text;
   final VoidCallback callback;
   final VoidCallback longPressCallback;
+  Color color;
 
-  const GeneralButton({Key? key, required this.text, required this.callback, required this.longPressCallback}) : super(key: key);
+  GeneralButton({Key? key, required this.text, required this.callback, required this.longPressCallback,
+  this.color = const Color(0xFFCFFAFF)}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +19,7 @@ class GeneralButton extends StatelessWidget{
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
-          color: const Color(0xFFCFFAFF),
+          color: color,
         ),
         child: SizedBox(
           height: 50,
@@ -25,7 +27,7 @@ class GeneralButton extends StatelessWidget{
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(text),
+                Text(text, style: const TextStyle(color: Colors.black)),
               ],
             ),
           ),
