@@ -35,18 +35,21 @@ class FloorPage extends StatelessWidget {
             text: "Добавить Стену", callback: () {
 
             },
+            longPressCallback: () {},
           ),
           GeneralButton(
             text: "Добавить Дверь",
             callback: () {
 
             },
+            longPressCallback: () {},
           ),
           GeneralButton(
             text: "Добавить Окно",
             callback: () {
 
             },
+            longPressCallback: () {},
           ),]
     ),
     );

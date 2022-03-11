@@ -31,7 +31,7 @@ class _HousePageState extends State<HousePage> {
       ),
       body:  ListView(
         children: [
-          const Text("Название дома"),
+          Text(widget.house.name),
           const Text("Всего этажей: 0"),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -48,7 +48,8 @@ class _HousePageState extends State<HousePage> {
                     Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => FloorPage(floor: e)),
-                  )}))
+                  )},
+                  longPressCallback: () {},))
                 ],
 
               ),
@@ -60,9 +61,9 @@ class _HousePageState extends State<HousePage> {
               if(!floorBlock) return;
               setState(() {
                 floorBlock = widget.house.addFloor();
-
               });
             },
+            longPressCallback: () {},
           ),
           GeneralButton(
             text: "Настроить крышу",
@@ -72,6 +73,7 @@ class _HousePageState extends State<HousePage> {
                 MaterialPageRoute(builder: (context) => const RoofPage()),
               );
             },
+            longPressCallback: () {},
           ),
         ]
       ),

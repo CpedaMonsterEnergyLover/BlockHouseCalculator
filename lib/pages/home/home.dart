@@ -57,7 +57,8 @@ class _HomePageState extends State<HomePage> {
                     context,
                     MaterialPageRoute(builder: (context) => HousePage(house: e)),
                   )
-                  }))
+                  },
+                    longPressCallback: () {},))
                 ],
 
               ),
@@ -71,11 +72,13 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               houses.add(house);
             });
-          }),
+          },
+            longPressCallback: () {},),
 
           GeneralButton(
             text: "Пример",
-            callback: () {  },)
+            callback: () {  },
+            longPressCallback: () {},)
         ],
       )
 
