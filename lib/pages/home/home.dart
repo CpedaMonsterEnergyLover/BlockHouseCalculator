@@ -13,11 +13,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<House> houses = [];
+  List<House> houses = [House(), House(), House()];
+
+  void addHouse() {
+    setState(() {
+      houses.add(House());
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
-    houses = [House(), House(), House()];
 
     return Scaffold(
       appBar: AppBar(
@@ -68,9 +75,12 @@ class _HomePageState extends State<HomePage> {
                 MaterialPageRoute(builder: (context) => HousePage()),
               );*/
 
-            setState(() {
-              houses = [];
-            });
+            addHouse();
+            print(houses.length);
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HousePage()),
+            );
   }),
 
           GeneralButton(
