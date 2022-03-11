@@ -13,7 +13,7 @@ class FloorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Этаж #" + floor.index.toString()),
+          title: Text(floor.getName()),
           leading:  IconButton(
             icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
