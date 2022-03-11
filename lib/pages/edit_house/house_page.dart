@@ -5,10 +5,17 @@ import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HousePage extends StatelessWidget {
+class HousePage extends StatefulWidget {
   House house;
 
   HousePage({Key? key, required this.house}) : super(key: key);
+
+  @override
+  State<HousePage> createState() => _HousePageState();
+}
+
+class _HousePageState extends State<HousePage> {
+  bool floorBlock = true;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +44,11 @@ class HousePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  ...house.floors.map((e) => GeneralButton(text: "Этаж # ", callback: () => {}))
+                  ...widget.house.floors.map((e) => GeneralButton(text: "Этаж # " + e.index.toString(), callback: () => {
+                    Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const FloorPage()),
+                  )}))
                 ],
 
               ),
@@ -46,10 +57,11 @@ class HousePage extends StatelessWidget {
           GeneralButton(
             text: "Добавить этаж",
             callback: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const FloorPage()),
-              );
+              if(!floorBlock) return;
+              setState(() {
+                floorBlock = widget.house.addFloor();
+
+              });
             },
           ),
           GeneralButton(
@@ -65,5 +77,4 @@ class HousePage extends StatelessWidget {
       ),
     );
   }
-
 }
