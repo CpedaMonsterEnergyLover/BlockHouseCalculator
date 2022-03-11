@@ -29,6 +29,12 @@ class _HousePageState extends State<HousePage> {
             Navigator.pop(context);
           },
         ),
+        actions: [IconButton(
+          icon: const Icon(Icons.keyboard_arrow_left),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),],
       ),
       body:  ListView(
         children: [
