@@ -1,13 +1,14 @@
 import 'package:block_house_calculator/pages/edit_floor/floor_page.dart';
 import 'package:block_house_calculator/pages/edit_roof/roof_page.dart';
 import 'package:block_house_calculator/pages/elements/general_button.dart';
+import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HousePage extends StatelessWidget {
-  HousePage({Key? key}) : super(key: key);
+  House house;
 
-
+  HousePage({Key? key, required this.house}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

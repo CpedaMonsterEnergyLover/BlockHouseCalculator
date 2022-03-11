@@ -1,6 +1,6 @@
 import 'package:block_house_calculator/pages/edit_house/house_page.dart';
 import 'package:block_house_calculator/pages/elements/general_button.dart';
-import 'package:block_house_calculator/pages/objects/House.dart';
+import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -13,15 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<House> houses = [House(), House(), House()];
-
-  void addHouse() {
-    setState(() {
-      houses.add(House());
-    });
-  }
-
-
+  List<House> houses = [];
 
   @override
   Widget build(BuildContext context) {
@@ -70,16 +62,13 @@ class _HomePageState extends State<HomePage> {
           GeneralButton(
             text: "Добавить дом",
             callback: () {
-  /*Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HousePage()),
-              );*/
-
-            addHouse();
-            print(houses.length);
+            House house = House();
+            setState(() {
+              houses.add(house);
+            });
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => HousePage()),
+              MaterialPageRoute(builder: (context) => HousePage(house: house)),
             );
   }),
 
