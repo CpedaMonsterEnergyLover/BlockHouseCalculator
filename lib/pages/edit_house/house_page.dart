@@ -1,6 +1,7 @@
 import 'package:block_house_calculator/pages/edit_floor/floor_page.dart';
 import 'package:block_house_calculator/pages/edit_roof/roof_page.dart';
 import 'package:block_house_calculator/pages/elements/general_button.dart';
+import 'package:block_house_calculator/pages/elements/dialog.dart';
 import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -49,7 +50,11 @@ class _HousePageState extends State<HousePage> {
                   context,
                   MaterialPageRoute(builder: (context) => FloorPage(floor: e)),
                   )},
-                  longPressCallback: () {},))
+                   longPressCallback: () {  buildConfirmDialog(context, "Вы уверены что хотите удалить этаж?");
+                  // setState(() {
+                  //
+                  //   widget.house.removeFloor(e.index);
+                  // }); },))
                 ],
 
               ),
