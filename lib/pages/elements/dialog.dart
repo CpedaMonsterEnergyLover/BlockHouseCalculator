@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 
 class AbcDialog {
   static void buildConfirmDialog(BuildContext context, String title, String subtitle,
-      String textButton, VoidCallback callback) {
+      String textButton, String textButton1 , VoidCallback callback) {
     showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (context) {
           return Align(
               alignment: Alignment.bottomCenter,
@@ -44,8 +45,20 @@ class AbcDialog {
                                 callback();
                                 Navigator.pop(context);
                               },
-                              longPressCallback: () {} )),
+                              longPressCallback: () {} ),
                     ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Material(
+                        child: GeneralButton(
+                            text: textButton1,
+                            callback: () {
+                              Navigator.pop(context);
+                            },
+                            longPressCallback: () {} ),
+                      ),
+                    )
                   ],
                 ),
               ));

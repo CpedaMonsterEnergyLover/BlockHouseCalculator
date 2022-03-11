@@ -55,9 +55,8 @@ class _HousePageState extends State<HousePage> {
                    longPressCallback: () {
                      AbcDialog.buildConfirmDialog(
                          context, "Удаление этажа", "Вы уверены что хотите удалить этаж?",
-                         "Да", () {
+                         "Да","Нет", () {
                           setState(() {
-
                             widget.house.removeFloor(e.index);
                           });
                      });
