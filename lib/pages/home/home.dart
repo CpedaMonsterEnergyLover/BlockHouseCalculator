@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<House> houses = [];
+  List<House> houses = List.empty(growable: true);
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,12 @@ class _HomePageState extends State<HomePage> {
               ),
               child: Column(
                 children: [
-                  ...houses.map((e) => GeneralButton(text: e.name, callback: () => {}))
+                  ...houses.map((e) => GeneralButton(text: e.name, callback: () => {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HousePage(house: e)),
+                  )
+                  }))
                 ],
 
               ),
@@ -66,10 +71,6 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               houses.add(house);
             });
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HousePage(house: house)),
-            );
   }),
 
           GeneralButton(
