@@ -24,6 +24,8 @@ class HousePage extends StatelessWidget {
       ),
       body:  ListView(
         children: [
+          const Text("Название дома"),
+          const Text("Всего этажей: 0"),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -41,9 +43,6 @@ class HousePage extends StatelessWidget {
               ),
             ),
           ),
-          const Text("Название дома"),
-          const Text("Всего этажей: 0"),
-          const Text("Тут будет список этажей"),
           GeneralButton(
             text: "Добавить этаж",
             callback: () {
