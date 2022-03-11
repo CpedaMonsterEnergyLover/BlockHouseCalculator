@@ -4,22 +4,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AbcDialog {
-  static Future inputDialog(BuildContext context, House house) async {
-    String teamName = 'SewerIT';
-    return showDialog(
+  static String inputDialog(BuildContext context, House house) {
+    String newName = '';
+    showDialog(
       context: context,
       barrierDismissible: false, // dialog is dismissible with a tap on the barrier
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text('Изменить название'),
-          content: new Row(
+          content: Row(
             children: <Widget>[
-              new Expanded(
-                  child: new TextField(
+              Expanded(
+                  child: TextField(
                     autofocus: true,
-                    decoration: new InputDecoration(labelText: 'Название дома', hintText: house.name),
+                    decoration: InputDecoration(labelText: 'Название дома', hintText: house.name),
                     onChanged: (value) {
-                      house.name = value;
+                      newName = value;
                     },
                   ))
             ],
@@ -35,6 +35,8 @@ class AbcDialog {
         );
       },
     );
+    return newName;
+
   }
 
   static void buildConfirmDialog(BuildContext context, String title, String subtitle,
