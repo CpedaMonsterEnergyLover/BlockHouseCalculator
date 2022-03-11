@@ -4,9 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AbcDialog {
-  static String inputDialog(BuildContext context, House house) {
-    String newName = '';
-    showDialog(
+
+  static Future<String> inputDialog(BuildContext context, House house) async {
+    String newName = house.name;
+    newName = await showDialog(
       context: context,
       barrierDismissible: false, // dialog is dismissible with a tap on the barrier
       builder: (BuildContext context) {
@@ -28,7 +29,7 @@ class AbcDialog {
             TextButton(
               child: const Text('Подтвердить'),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(newName);
               },
             ),
           ],
@@ -36,8 +37,9 @@ class AbcDialog {
       },
     );
     return newName;
-
   }
+
+
 
   static void buildConfirmDialog(BuildContext context, String title, String subtitle,
       String textButton, String textButton1 , VoidCallback callback) {

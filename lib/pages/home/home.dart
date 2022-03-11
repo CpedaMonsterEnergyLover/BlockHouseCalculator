@@ -16,6 +16,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   List<House> houses = List.empty(growable: true);
 
+  void refresh () { setState(() {});}
+
   @override
   Widget build(BuildContext context) {
 
@@ -56,7 +58,7 @@ class _HomePageState extends State<HomePage> {
                   ...houses.map((e) => GeneralButton(text: e.name, callback: () => {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HousePage(house: e)),
+                    MaterialPageRoute(builder: (context) => HousePage(house: e, notifyParent: refresh)),
                   )
                   },
                     longPressCallback: () {

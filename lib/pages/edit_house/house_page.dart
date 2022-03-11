@@ -8,8 +8,9 @@ import 'package:flutter/material.dart';
 
 class HousePage extends StatefulWidget {
   House house;
+  final Function() notifyParent;
 
-  HousePage({Key? key, required this.house}) : super(key: key);
+  HousePage({Key? key, required this.house, required this.notifyParent}) : super(key: key);
 
   @override
   State<HousePage> createState() => _HousePageState();
@@ -17,6 +18,14 @@ class HousePage extends StatefulWidget {
 
 class _HousePageState extends State<HousePage> {
   bool floorBlock = true;
+
+  late House house;
+
+
+  @override
+  void initState() {
+    house = widget.house;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +40,27 @@ class _HousePageState extends State<HousePage> {
         ),
         actions: [IconButton(
           icon: const Icon(Icons.edit_outlined),
-          onPressed: () {
+          onPressed: () async {
+            var newValue = await AbcDialog.inputDialog(context, widget.house);
             setState(() {
-              widget.house.name = AbcDialog.inputDialog(context, widget.house);
+              house.name = newValue;
             });
+            widget.notifyParent();
           },
         ),],
       ),
       body:  ListView(
         children: [
-          Text(widget.house.name),
-          const Text("Всего этажей: 0"),
+          GeneralButton(
+            text: "Добавить этаж",
+            callback: () {
+              if(!floorBlock) return;
+              setState(() {
+                floorBlock = widget.house.addFloor();
+              });
+            },
+            longPressCallback: () {},
+          ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -73,16 +92,6 @@ class _HousePageState extends State<HousePage> {
                 ],
               ),
             ),
-          ),
-          GeneralButton(
-            text: "Добавить этаж",
-            callback: () {
-              if(!floorBlock) return;
-              setState(() {
-                floorBlock = widget.house.addFloor();
-              });
-            },
-            longPressCallback: () {},
           ),
           GeneralButton(
             text: "Настроить крышу",
