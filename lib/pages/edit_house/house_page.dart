@@ -22,7 +22,7 @@ class _HousePageState extends State<HousePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Настройка дома"),
+        title:  Text(widget.house.name),
         leading:  IconButton(
           icon: const Icon(Icons.keyboard_arrow_left),
           onPressed: () {
@@ -30,9 +30,11 @@ class _HousePageState extends State<HousePage> {
           },
         ),
         actions: [IconButton(
-          icon: const Icon(Icons.keyboard_arrow_left),
+          icon: const Icon(Icons.edit_outlined),
           onPressed: () {
-            Navigator.pop(context);
+            setState(() {
+              AbcDialog.inputDialog(context, widget.house);
+            });
           },
         ),],
       ),

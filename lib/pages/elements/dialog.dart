@@ -1,8 +1,42 @@
 import 'package:block_house_calculator/pages/elements/general_button.dart';
+import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AbcDialog {
+  static Future inputDialog(BuildContext context, House house) async {
+    String teamName = 'SewerIT';
+    return showDialog(
+      context: context,
+      barrierDismissible: false, // dialog is dismissible with a tap on the barrier
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Изменить название'),
+          content: new Row(
+            children: <Widget>[
+              new Expanded(
+                  child: new TextField(
+                    autofocus: true,
+                    decoration: new InputDecoration(labelText: 'Название дома', hintText: house.name),
+                    onChanged: (value) {
+                      house.name = value;
+                    },
+                  ))
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Подтвердить'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   static void buildConfirmDialog(BuildContext context, String title, String subtitle,
       String textButton, String textButton1 , VoidCallback callback) {
     showDialog(
