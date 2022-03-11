@@ -44,7 +44,7 @@ class _HousePageState extends State<HousePage> {
               ),
               child: Column(
                 children: [
-                  ...widget.house.floors.map((e) => GeneralButton(text: "Этаж # " + e.index.toString(), callback: () => {
+                  ...widget.house.floors.map((e) => GeneralButton(text: e.getName(), callback: () => {
                     Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => FloorPage(floor: e)),
