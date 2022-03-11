@@ -37,9 +37,9 @@ class _HomePageState extends State<HomePage> {
       ),
       body: ListView(
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(0, 8, 0, 0),
-            child: const Center(child: Text("Список домов")),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(0, 8, 0, 0),
+            child: Center(child: Text("Список домов")),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
             setState(() {
               houses.add(house);
             });
-  }),
+          }),
 
           GeneralButton(
             text: "Пример",

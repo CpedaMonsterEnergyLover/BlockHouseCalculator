@@ -1,16 +1,19 @@
 
 import 'package:block_house_calculator/pages/elements/general_button.dart';
+import 'package:block_house_calculator/pages/objects/floor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FloorPage extends StatelessWidget {
-  const FloorPage({Key? key}) : super(key: key);
+  final Floor floor;
+
+  const FloorPage({Key? key, required this.floor}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Настройка этажа"),
+          title: Text("Этаж #" + floor.index.toString()),
           leading:  IconButton(
             icon: const Icon(Icons.keyboard_arrow_left),
             onPressed: () {
