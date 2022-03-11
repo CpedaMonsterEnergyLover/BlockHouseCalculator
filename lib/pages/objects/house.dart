@@ -20,4 +20,24 @@ class House {
       element.index = floors.indexOf(element);
     }
   }
+
+
+
+  Map<String, dynamic> toJson(){
+    Map<String, dynamic> json = {};
+
+    Map<String, dynamic> floorsMap = {};
+    for (var floor in floors) {
+      floorsMap[floor.index.toString()] = floor.toJson();
+    }
+
+    json = {
+      "name": name,
+      "floors": floorsMap
+    };
+    return json;
+  }
+
+/*  House fromJson(){
+  }*/
 }

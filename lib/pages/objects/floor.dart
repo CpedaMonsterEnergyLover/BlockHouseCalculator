@@ -14,4 +14,26 @@ class Floor {
   void addWall(){
     walls.add(Wall());
   }
+
+
+
+  Map<String, dynamic> toJson(){
+    Map<String, dynamic> json = {};
+
+    Map<String, dynamic> wallsMap = {};
+    for (var wall in walls) {
+      wallsMap[wall.toString()] = wall.toJson();
+    }
+
+    json = {
+      "index": index,
+      "doorsCount": doorsCount,
+      "windowsCount": windowsCount,
+      "walls": walls,
+    };
+    return json;
+  }
+
+/*  Floor fromJson(){
+  }*/
 }
