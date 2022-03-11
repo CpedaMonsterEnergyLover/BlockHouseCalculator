@@ -4,8 +4,14 @@ class House {
   String name = "Новый дом";
   List<Floor> floors = [];
 
-  void addFloor(){
-    floors.add(Floor(floors.length));
+  bool addFloor(){
+    if(floors.length < 3){
+      floors.add(Floor(floors.length));
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
   void removeFloor(int index){
