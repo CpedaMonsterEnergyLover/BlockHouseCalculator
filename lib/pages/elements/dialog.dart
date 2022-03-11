@@ -1,9 +1,10 @@
+import 'package:block_house_calculator/pages/elements/general_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Dialog {
-  void buildConfirmDialog(BuildContext context, String title, String subtitle,
-      String textButton) {
+class AbcDialog {
+  static void buildConfirmDialog(BuildContext context, String title, String subtitle,
+      String textButton, VoidCallback callback) {
     showDialog(
         context: context,
         builder: (context) {
@@ -37,9 +38,13 @@ class Dialog {
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Material(
-                          child: Text(textButton,
-                              style: TextStyle(
-                                  fontSize: 14.0, color: Colors.green))),
+                          child: GeneralButton(
+                              text: textButton,
+                              callback: () {
+                                callback();
+                                Navigator.pop(context);
+                              },
+                              longPressCallback: () {} )),
                     ),
                   ],
                 ),

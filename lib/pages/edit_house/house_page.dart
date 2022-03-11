@@ -45,18 +45,25 @@ class _HousePageState extends State<HousePage> {
               ),
               child: Column(
                 children: [
-                  ...widget.house.floors.map((e) => GeneralButton(text: e.getName(), callback: () => {
-                    Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => FloorPage(floor: e)),
-                  )},
-                   longPressCallback: () {  buildConfirmDialog(context, "Вы уверены что хотите удалить этаж?");
-                  // setState(() {
-                  //
-                  //   widget.house.removeFloor(e.index);
-                  // }); },))
-                ],
+                  ...widget.house.floors.map((e) => GeneralButton(text: e.getName(),
+                    callback: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => FloorPage(floor: e)),
+                      )
+                    },
+                   longPressCallback: () {
+                     AbcDialog.buildConfirmDialog(
+                         context, "Удаление этажа", "Вы уверены что хотите удалить этаж?",
+                         "Да", () {
+                          setState(() {
 
+                            widget.house.removeFloor(e.index);
+                          });
+                     });
+                   }))
+                  //  },))
+                ],
               ),
             ),
           ),
