@@ -63,6 +63,7 @@ class AbcDialog {
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Material(
+                          color: Colors.white,
                           child: Text(title,
                               style: const TextStyle(
                                   fontSize: 18.0, color: Colors.black))),
@@ -70,13 +71,15 @@ class AbcDialog {
                     Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Material(
+                          color: Colors.white,
                           child: Text(subtitle,
                               style: const TextStyle(
                                   fontSize: 14.0, color: Colors.black))),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                       child: Material(
+                        color: Colors.white,
                           child: GeneralButton(
                               text: textButton,
                               callback: () {
@@ -84,19 +87,22 @@ class AbcDialog {
                                 Navigator.pop(context);
                               },
                               longPressCallback: () {},
-                          color: Colors.green),
+                          color: Colors.green.shade400
+                          ),
                     ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                       child: Material(
+                        color: Colors.white,
                         child: GeneralButton(
                             text: textButton1,
                             callback: () {
                               Navigator.pop(context);
                             },
                             longPressCallback: () {},
-                        color: Colors.red),
+                        color: Colors.red.shade400
+                        ),
                       ),
                     )
                   ],
