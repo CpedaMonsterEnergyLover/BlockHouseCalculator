@@ -41,7 +41,7 @@ class _HousePageState extends State<HousePage> {
         actions: [IconButton(
           icon: const Icon(Icons.edit_outlined),
           onPressed: () async {
-            var newValue = await AbcDialog.inputDialog(context, widget.house);
+            var newValue = await AbcDialog.inputDialog(context, widget.house, "Изменить название");
             setState(() {
               house.name = newValue;
             });

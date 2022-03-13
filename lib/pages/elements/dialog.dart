@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 
 class AbcDialog {
 
-  static Future<String> inputDialog(BuildContext context, House house) async {
+  static Future<String> inputDialog(BuildContext context, House house, String title) async {
     String newName = house.name;
     newName = await showDialog(
       context: context,
       barrierDismissible: false, // dialog is dismissible with a tap on the barrier
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Изменить название'),
+          title:  Text(title),
           content: Row(
             children: <Widget>[
               Expanded(

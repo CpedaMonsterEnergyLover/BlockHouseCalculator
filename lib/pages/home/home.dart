@@ -78,9 +78,11 @@ class _HomePageState extends State<HomePage> {
 
           GeneralButton(
             text: "Добавить дом",
-            callback: () {
+            callback: () async {
             House house = House();
-            setState(() {
+            var newValue = await AbcDialog.inputDialog(context, house, "Название дома");
+            setState(()  {
+              house.name = newValue;
               houses.add(house);
             });
           },
