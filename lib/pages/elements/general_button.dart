@@ -18,7 +18,7 @@ class GeneralButton extends StatelessWidget{
       onLongPress: longPressCallback,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: BorderRadius.circular(16),
           color: color,
         ),
         child: SizedBox(
