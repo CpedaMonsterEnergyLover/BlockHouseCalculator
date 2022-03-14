@@ -44,6 +44,7 @@ class AbcDialog {
   static void buildConfirmDialog(BuildContext context, String title, String subtitle,
       String textButton, String textButton1 , VoidCallback callback) {
     showDialog(
+        useSafeArea: false,
         context: context,
         barrierDismissible: false,
         builder: (context) {
@@ -92,7 +93,7 @@ class AbcDialog {
                     ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
+                      padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
                       child: Material(
                         color: Colors.white,
                         child: GeneralButton(
