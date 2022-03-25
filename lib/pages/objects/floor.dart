@@ -12,7 +12,8 @@ class Floor {
     return "Этаж " + (index + 1).toString();
   }
 
-  Floor(this.index, this.walls, this.doorsCount, this.windowsCount);
+  Floor(this.index);
+  Floor.full(this.index, this.walls, this.doorsCount, this.windowsCount);
 
 
   void addWall(){
@@ -40,7 +41,7 @@ class Floor {
 
   Floor fromJson(String json){
     Map<String, dynamic> map = jsonDecode(json);
-    return Floor(
+    return Floor.full(
       map["index"], map["doorsCount"],map["windowsCount"],map["walls"],
     );
   }
