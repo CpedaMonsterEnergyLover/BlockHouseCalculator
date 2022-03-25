@@ -2,8 +2,8 @@ import 'dart:convert';
 
 class Wall{
   double length = 0.0;
-
-  Wall(double length);
+  Wall();
+  Wall.full(double length);
 
   Map<String, dynamic> toJson(){
     Map<String, dynamic> json = {};
@@ -16,6 +16,6 @@ class Wall{
 
   Wall fromJson(String json){
     Map<String, dynamic> map = jsonDecode(json);
-    return Wall(map["length"]);
+    return Wall.full(map["length"]);
   }
 }
