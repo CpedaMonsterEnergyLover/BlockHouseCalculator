@@ -1,9 +1,12 @@
+import 'dart:convert';
+
 import 'floor.dart';
 
 class House {
   String name = "Новый дом";
   List<Floor> floors = [];
 
+  House(String name, List<Floor> floors);
   bool addFloor(){
     if(floors.length < 3){
       floors.add(Floor(floors.length));
@@ -38,6 +41,9 @@ class House {
     return json;
   }
 
-/*  House fromJson(){
-  }*/
+  House fromJson(String json){
+  Map<String, dynamic> map = jsonDecode(json);
+
+  return House(map["name"], map["floors"]);
+  }
 }
