@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:block_house_calculator/pages/objects/wall.dart';
 
 class Floor {
@@ -10,7 +12,9 @@ class Floor {
     return "Этаж " + (index + 1).toString();
   }
 
-  Floor(this.index);
+  Floor(this.index, this.walls, this.doorsCount, this.windowsCount);
+
+
   void addWall(){
     walls.add(Wall());
   }
@@ -34,6 +38,10 @@ class Floor {
     return json;
   }
 
-/*  Floor fromJson(){
-  }*/
+  Floor fromJson(String json){
+    Map<String, dynamic> map = jsonDecode(json);
+    return Floor(
+      map["index"], map["doorsCount"],map["windowsCount"],map["walls"],
+    );
+  }
 }
