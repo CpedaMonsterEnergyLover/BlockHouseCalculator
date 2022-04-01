@@ -103,60 +103,54 @@ class _HousePageState extends State<HousePage> {
             },
             longPressCallback: () {},
           ),
-          Expanded(
-              child: TextField(
-                autofocus: false,
-                keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
-                decoration: InputDecoration(labelText: 'Длина дома', hintText: widget.house.houseLength.toString()),
-                onSubmitted: (value) {
-                  setState((){widget.house.houseLength = double.parse(value);});
-                },
-              )),
-          Expanded(
-              child: TextField(
-                autofocus: false,
-                keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
-                decoration: InputDecoration(labelText: 'Ширина дома', hintText: widget.house.houseWidth.toString()),
-                onSubmitted: (value) {
-                  setState((){widget.house.houseWidth = double.parse(value);});
-                },
-              )),
-          Expanded(
-              child: TextField(
-                autofocus: false,
-                keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
-                decoration: InputDecoration(labelText: 'Высота этажей', hintText: widget.house.floorHeight.toString()),
-                onSubmitted: (value) {
-                  setState((){widget.house.floorHeight = double.parse(value);});
-                },
-              )),
-          Expanded(
-              child: TextField(
-                autofocus: false,
-                keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
-                decoration: InputDecoration(labelText: 'Высота дверных проемов', hintText: widget.house.doorHeight.toString()),
-                onSubmitted: (value) {
-                  setState((){widget.house.doorHeight = double.parse(value);});
-                },
-              )),
-          Expanded(
-              child: TextField(
-                autofocus: false,
-                keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
-                decoration: InputDecoration(labelText: 'Высота оконных проемов', hintText: widget.house.windowHeight.toString()),
-                onSubmitted: (value) {
-                  setState((){widget.house.windowHeight = double.parse(value);});
-                },
-              )),
-          Expanded(
-              child: TextField(
-                autofocus: false,
-                keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
-                decoration: InputDecoration(labelText: 'Высота оплётки', hintText: widget.house.opletkaHeight.toString()),
-                onSubmitted: (value) {
-                  setState((){widget.house.opletkaHeight = double.parse(value);});
-                },
-              )),
+          TextField(
+            autofocus: false,
+            keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
+            decoration: InputDecoration(labelText: 'Длина дома', hintText: widget.house.houseLength.toString()),
+            onSubmitted: (value) {
+              setState((){widget.house.houseLength = double.parse(value);});
+            },
+          ),
+          TextField(
+            autofocus: false,
+            keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
+            decoration: InputDecoration(labelText: 'Ширина дома', hintText: widget.house.houseWidth.toString()),
+            onSubmitted: (value) {
+              setState((){widget.house.houseWidth = double.parse(value);});
+            },
+          ),
+          TextField(
+            autofocus: false,
+            keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
+            decoration: InputDecoration(labelText: 'Высота этажей', hintText: widget.house.floorHeight.toString()),
+            onSubmitted: (value) {
+              setState((){widget.house.floorHeight = double.parse(value);});
+            },
+          ),
+          TextField(
+            autofocus: false,
+            keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
+            decoration: InputDecoration(labelText: 'Высота дверных проемов', hintText: widget.house.doorHeight.toString()),
+            onSubmitted: (value) {
+              setState((){widget.house.doorHeight = double.parse(value);});
+            },
+          ),
+          TextField(
+            autofocus: false,
+            keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
+            decoration: InputDecoration(labelText: 'Высота оконных проемов', hintText: widget.house.windowHeight.toString()),
+            onSubmitted: (value) {
+              setState((){widget.house.windowHeight = double.parse(value);});
+            },
+          ),
+          TextField(
+            autofocus: false,
+            keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
+            decoration: InputDecoration(labelText: 'Высота оплётки', hintText: widget.house.opletkaHeight.toString()),
+            onSubmitted: (value) {
+              setState((){widget.house.opletkaHeight = double.parse(value);});
+            },
+          ),
         ]
       ),
     );
