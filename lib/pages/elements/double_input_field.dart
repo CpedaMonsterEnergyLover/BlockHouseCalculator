@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class DoubleInputField extends StatelessWidget {
+class IntegerInputField extends StatelessWidget {
 
   final String labelText;
   final String hintText;
   final Function callback;
 
-  const DoubleInputField({Key? key, required this.labelText, required this.callback, required this.hintText})
+  const IntegerInputField({Key? key, required this.labelText, required this.callback, required this.hintText})
       : super(key: key);
 
 
@@ -16,7 +16,7 @@ class DoubleInputField extends StatelessWidget {
     return           TextField(
       autofocus: false,
       keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: true),
-      decoration: InputDecoration(labelText: labelText + ": " + hintText, hintText: hintText),
+      decoration: InputDecoration(labelText: labelText + ": " + hintText + "мм", hintText: hintText),
       onSubmitted: (value) {
         callback(value);
       },

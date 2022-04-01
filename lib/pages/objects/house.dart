@@ -5,14 +5,21 @@ import 'floor.dart';
 class House {
   String name = "Новый дом";
   List<Floor> floors = [];
-  double houseWidth = 0;
-  double houseLength = 0;
-  double opletkaHeight = 0;
-  double floorHeight = 0;
-  double doorHeight = 0;
-  double windowHeight = 0;
+  int houseWidth = 0;
+  int houseLength = 0;
+  int opletkaHeight = 0;
+  int floorHeight = 0;
+  int doorHeight = 0;
+  int windowHeight = 0;
   House();
-  House.full(String name, List<Floor> floors, double houseWidth,double houseLength,double opletkaHeight,double floorHeight, double doorHeight, double windowHeight);
+  House.full(String name, 
+      List<Floor> floors, 
+      int houseWidth,
+      int houseLength,
+      int opletkaHeight,
+      int floorHeight,
+      int doorHeight,
+      int windowHeight);
   bool addFloor(){
     if(floors.length < 3){
       floors.add(Floor(floors.length));

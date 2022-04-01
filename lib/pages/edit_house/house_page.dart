@@ -104,46 +104,46 @@ class _HousePageState extends State<HousePage> {
             },
             longPressCallback: () {},
           ),
-          DoubleInputField(
+          IntegerInputField(
             labelText: 'Длина дома',
             hintText: widget.house.houseLength.toString(),
             callback: (value) {
-              setState((){widget.house.houseLength = double.parse(value);});
+              setState((){widget.house.houseLength = int.parse(value);});
             },
           ),
-          DoubleInputField(
+          IntegerInputField(
             labelText: 'Ширина дома',
             hintText: widget.house.houseWidth.toString(),
             callback: (value) {
-              setState((){widget.house.houseWidth = double.parse(value);});
+              setState((){widget.house.houseWidth = int.parse(value);});
             },
           ),
-          DoubleInputField(
+          IntegerInputField(
             labelText: 'Высота этажей',
             hintText: widget.house.floorHeight.toString(),
             callback: (value) {
-              setState((){widget.house.floorHeight = double.parse(value);});
+              setState((){widget.house.floorHeight = int.parse(value);});
             },
           ),
-          DoubleInputField(
+          IntegerInputField(
             labelText: 'Высота дверных проемов',
             hintText: widget.house.doorHeight.toString(),
             callback: (value) {
-              setState((){widget.house.doorHeight = double.parse(value);});
+              setState((){widget.house.doorHeight = int.parse(value);});
             },
           ),
-          DoubleInputField(
+          IntegerInputField(
             labelText: 'Высота оконных проемов',
             hintText: widget.house.windowHeight.toString(),
             callback: (value) {
-              setState((){widget.house.windowHeight = double.parse(value);});
+              setState((){widget.house.windowHeight = int.parse(value);});
             },
           ),
-          DoubleInputField(
+          IntegerInputField(
             labelText: 'Высота оплётки',
             hintText: widget.house.opletkaHeight.toString(),
             callback: (value) {
-              setState((){widget.house.opletkaHeight = double.parse(value);});
+              setState((){widget.house.opletkaHeight = int.parse(value);});
             },
           )
         ]
