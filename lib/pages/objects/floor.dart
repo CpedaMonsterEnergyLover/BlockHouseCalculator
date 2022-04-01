@@ -3,8 +3,8 @@ import 'dart:convert';
 class Floor {
   int index;
   List<double> walls =[]   ; // выглядит как смайлик, смешно? я смеялся.
-  int doorsCount = 0;
-  int windowsCount = 0;
+  List<double> doors =[]   ;
+  List<double> windows =[]   ;
 
 
   String getName(){
@@ -12,7 +12,7 @@ class Floor {
   }
 
   Floor(this.index);
-  Floor.full(this.index, this.walls,this.doorsCount, this.windowsCount);
+  Floor.full(this.index, this.walls,this.doors, this.windows);
 
 
 
@@ -23,8 +23,8 @@ class Floor {
 
     json = {
       "index": index,
-      "doorsCount": doorsCount,
-      "windowsCount": windowsCount,
+      "doorsCount": doors,
+      "windowsCount": windows,
       "walls": walls,
     };
     return json;
