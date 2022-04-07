@@ -1,3 +1,4 @@
+import 'package:block_house_calculator/pages/about_page/about_page.dart';
 import 'package:block_house_calculator/pages/edit_house/house_page.dart';
 import 'package:block_house_calculator/pages/elements/dialog.dart';
 import 'package:block_house_calculator/pages/elements/general_button.dart';
@@ -33,18 +34,24 @@ class _HomePageState extends State<HomePage> {
               padding: EdgeInsets.zero,
               children: [
                 const DrawerHeader(child: Text("watafak")),
-                  Align(
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SettingsPage()));
-                      },
-                      child: const Text("Настройки"),
-                    ),
-                    alignment: Alignment.bottomCenter,
-                  ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SettingsPage()));
+                  },
+                  child: const Text("Настройки"),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AboutPage()));
+                  },
+                  child: const Text("О приложении"),
+                ),
               ],
             ),
           ),
