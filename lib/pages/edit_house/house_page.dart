@@ -11,7 +11,8 @@ class HousePage extends StatefulWidget {
   House house;
   final Function() notifyParent;
 
-  HousePage({Key? key, required this.house, required this.notifyParent}) : super(key: key);
+  HousePage({Key? key, required this.house, required this.notifyParent})
+      : super(key: key);
 
   @override
   State<HousePage> createState() => _HousePageState();
@@ -22,7 +23,6 @@ class _HousePageState extends State<HousePage> {
 
   late House house;
 
-
   @override
   void initState() {
     house = widget.house;
@@ -32,122 +32,138 @@ class _HousePageState extends State<HousePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(widget.house.name),
-        leading:  IconButton(
+        title: Text(widget.house.name),
+        leading: IconButton(
           icon: const Icon(Icons.keyboard_arrow_left),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        actions: [IconButton(
-          icon: const Icon(Icons.edit_outlined),
-          onPressed: () async {
-            var newValue = await AbcDialog.inputDialog(context, widget.house, "Изменить название");
-            setState(() {
-              house.name = newValue;
-            });
-            widget.notifyParent();
-          },
-        ),],
-      ),
-      body:  ListView(
-        children: [
-          GeneralButton(
-            text: "Добавить этаж",
-            callback: () {
-              if(!floorBlock) return;
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.edit_outlined),
+            onPressed: () async {
+              var newValue = await AbcDialog.inputDialog(
+                  context, widget.house, "Изменить название");
               setState(() {
-                floorBlock = widget.house.addFloor();
+                house.name = newValue;
               });
+              widget.notifyParent();
             },
-            longPressCallback: () {},
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(
-                    color: Colors.black12
-                ),
-              ),
-              child: Column(
-                children: [
-                  ...widget.house.floors.map((e) => GeneralButton(text: e.getName(),
+        ],
+      ),
+      body: ListView(children: [
+        GeneralButton(
+          text: "Добавить этаж",
+          callback: () {
+            if (!floorBlock) return;
+            setState(() {
+              floorBlock = widget.house.addFloor();
+            });
+          },
+          longPressCallback: () {},
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(color: Colors.black12),
+            ),
+            child: Column(
+              children: [
+                ...widget.house.floors.map((e) => GeneralButton(
+                    text: e.getName(),
                     callback: () => {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => FloorPage(floor: e)),
-                      )
-                    },
-                   longPressCallback: () {
-                     AbcDialog.buildConfirmDialog(
-                         context, "Удаление этажа", "Вы уверены что хотите удалить этаж?",
-                         "Да","Нет", () {
-                          setState(() {
-                            widget.house.removeFloor(e.index);
-                          });
-                     });
-                   }))
-                  //  },))
-                ],
-              ),
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => FloorPage(floor: e)),
+                          )
+                        },
+                    longPressCallback: () {
+                      AbcDialog.buildConfirmDialog(
+                          context,
+                          "Удаление этажа",
+                          "Вы уверены что хотите удалить этаж?",
+                          "Да",
+                          "Нет", () {
+                        setState(() {
+                          widget.house.removeFloor(e.index);
+                        });
+                      });
+                    }))
+                //  },))
+              ],
             ),
           ),
-          GeneralButton(
-            text: "Настроить крышу",
-            callback: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const RoofPage()),
-              );
-            },
-            longPressCallback: () {},
-          ),
-          IntegerInputField(
-            labelText: 'Длина дома',
-            hintText: widget.house.houseLength.toString(),
-            callback: (value) {
-              setState((){widget.house.houseLength = value;});
-            },
-          ),
-          IntegerInputField(
-            labelText: 'Ширина дома',
-            hintText: widget.house.houseWidth.toString(),
-            callback: (value) {
-              setState((){widget.house.houseWidth = value;});
-            },
-          ),
-          IntegerInputField(
-            labelText: 'Высота этажей',
-            hintText: widget.house.floorHeight.toString(),
-            callback: (value) {
-              setState((){widget.house.floorHeight = value;});
-            },
-          ),
-          IntegerInputField(
-            labelText: 'Высота дверных проемов',
-            hintText: widget.house.doorHeight.toString(),
-            callback: (value) {
-              setState((){widget.house.doorHeight = value;});
-            },
-          ),
-          IntegerInputField(
-            labelText: 'Высота оконных проемов',
-            hintText: widget.house.windowHeight.toString(),
-            callback: (value) {
-              setState((){widget.house.windowHeight = value;});
-            },
-          ),
-          IntegerInputField(
-            labelText: 'Высота оплётки',
-            hintText: widget.house.opletkaHeight.toString(),
-            callback: (value) {
-              setState((){widget.house.opletkaHeight = value;});
-            },
-          )
-        ]
-      ),
+        ),
+        GeneralButton(
+          text: "Настроить крышу",
+          callback: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const RoofPage()),
+            );
+          },
+          longPressCallback: () {},
+        ),
+        IntegerInputField(
+          labelText: 'Длина дома',
+          hintText: widget.house.houseLength.toString(),
+          callback: (value) {
+            setState(() {
+              widget.house.houseLength = value;
+            });
+          },
+        ),
+        IntegerInputField(
+          labelText: 'Ширина дома',
+          hintText: widget.house.houseWidth.toString(),
+          callback: (value) {
+            setState(() {
+              widget.house.houseWidth = value;
+            });
+          },
+        ),
+        IntegerInputField(
+          labelText: 'Высота этажей',
+          hintText: widget.house.floorHeight.toString(),
+          callback: (value) {
+            setState(() {
+              widget.house.floorHeight = value;
+            });
+          },
+        ),
+        IntegerInputField(
+          labelText: 'Высота дверных проемов',
+          hintText: widget.house.doorHeight.toString(),
+          callback: (value) {
+            setState(() {
+              widget.house.doorHeight = value;
+            });
+          },
+        ),
+        IntegerInputField(
+          labelText: 'Высота оконных проемов',
+          hintText: widget.house.windowHeight.toString(),
+          callback: (value) {
+            setState(() {
+              widget.house.windowHeight = value;
+            });
+          },
+        ),
+        IntegerInputField(
+          labelText: 'Высота оплётки',
+          hintText: widget.house.opletkaHeight.toString(),
+          callback: (value) {
+            setState(() {
+              widget.house.opletkaHeight = value;
+            });
+          },
+        )
+      ]),
     );
   }
 }

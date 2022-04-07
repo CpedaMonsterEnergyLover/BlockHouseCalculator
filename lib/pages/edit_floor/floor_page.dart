@@ -53,6 +53,7 @@ class _FloorPageState extends State<FloorPage> {
                         .map((index, e) => MapEntry(
                             index,
                             SizeableFloorElement(
+                              key: ValueKey(index),
                               index: index,
                               text: "Длина",
                               value: e,

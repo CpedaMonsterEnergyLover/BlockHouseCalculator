@@ -18,6 +18,7 @@ class IntegerInputField extends StatefulWidget {
 
 class _IntegerInputFieldState extends State<IntegerInputField> {
   final TextEditingController _controller = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
   String errorText = '';
 
   void clear() => _controller.clear();
@@ -48,6 +49,7 @@ class _IntegerInputFieldState extends State<IntegerInputField> {
     return           TextField(
       controller: _controller,
       autofocus: false,
+      // focusNode: _focusNode,
       keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: false),
       decoration: InputDecoration(
           labelText: widget.labelText + ": " + widget.hintText + "мм",
