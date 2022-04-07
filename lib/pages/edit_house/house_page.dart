@@ -108,42 +108,42 @@ class _HousePageState extends State<HousePage> {
             labelText: 'Длина дома',
             hintText: widget.house.houseLength.toString(),
             callback: (value) {
-              setState((){widget.house.houseLength = int.parse(value);});
+              setState((){widget.house.houseLength = value;});
             },
           ),
           IntegerInputField(
             labelText: 'Ширина дома',
             hintText: widget.house.houseWidth.toString(),
             callback: (value) {
-              setState((){widget.house.houseWidth = int.parse(value);});
+              setState((){widget.house.houseWidth = value;});
             },
           ),
           IntegerInputField(
             labelText: 'Высота этажей',
             hintText: widget.house.floorHeight.toString(),
             callback: (value) {
-              setState((){widget.house.floorHeight = int.parse(value);});
+              setState((){widget.house.floorHeight = value;});
             },
           ),
           IntegerInputField(
             labelText: 'Высота дверных проемов',
             hintText: widget.house.doorHeight.toString(),
             callback: (value) {
-              setState((){widget.house.doorHeight = int.parse(value);});
+              setState((){widget.house.doorHeight = value;});
             },
           ),
           IntegerInputField(
             labelText: 'Высота оконных проемов',
             hintText: widget.house.windowHeight.toString(),
             callback: (value) {
-              setState((){widget.house.windowHeight = int.parse(value);});
+              setState((){widget.house.windowHeight = value;});
             },
           ),
           IntegerInputField(
             labelText: 'Высота оплётки',
             hintText: widget.house.opletkaHeight.toString(),
             callback: (value) {
-              setState((){widget.house.opletkaHeight = int.parse(value);});
+              setState((){widget.house.opletkaHeight = value;});
             },
           )
         ]

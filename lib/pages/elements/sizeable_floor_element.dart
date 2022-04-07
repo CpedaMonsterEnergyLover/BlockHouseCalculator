@@ -1,40 +1,53 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SizeableFloorElement extends StatelessWidget{
+import 'double_input_field.dart';
 
+class SizeableFloorElement extends StatelessWidget {
   final String text;
-  final double value;
-  final VoidCallback callback;
-  final VoidCallback longPressCallback;
+  final int value;
+  final Function callback;
+  Function deleteCallback;
   Color color;
+  final int index;
 
-  SizeableFloorElement({Key? key, required this.text, required this.value, required this.callback, required this.longPressCallback,
-    this.color = const Color(0xFFCFFAFF)}) : super(key: key);
+  SizeableFloorElement(
+      {Key? key,
+      required this.index,
+      required this.text,
+      required this.value,
+      required this.callback,
+      this.color = const Color(0xFFCFFAFF),
+      required this.deleteCallback})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: callback,
-      onLongPress: longPressCallback,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(8),
           color: color,
         ),
-        child: SizedBox(
-          height: 50,
-          child: Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(text + value.toString() + "мм", style: const TextStyle(color: Colors.black)),
-              ],
-            ),
-          ),
+        child: Row(
+          children: [
+            Expanded(
+                child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+              child: IntegerInputField(
+                  callback: callback,
+                  hintText: value.toString(),
+                  labelText: text),
+            )),
+            IconButton(
+                onPressed: () {
+                  deleteCallback();
+                },
+                icon: const Icon(Icons.delete)),
+          ],
         ),
       ),
     );
   }
-
 }

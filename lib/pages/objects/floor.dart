@@ -2,9 +2,9 @@ import 'dart:convert';
 
 class Floor {
   int index;
-  List<double> walls =[]   ; // выглядит как смайлик, смешно? я смеялся.
-  List<double> doors =[]   ;
-  List<double> windows =[]   ;
+  List<int> walls =[]   ; // выглядит как смайлик, смешно? я смеялся.
+  List<int> doors =[]   ;
+  List<int> windows =[]   ;
 
 
   String getName(){
@@ -15,7 +15,9 @@ class Floor {
   Floor.full(this.index, this.walls,this.doors, this.windows);
 
 
-
+  addWall(int value) {
+    walls.add(value);
+  }
 
   Map<String, dynamic> toJson(){
     Map<String, dynamic> json = {};

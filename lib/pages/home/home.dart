@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.blue,
               ),
               child: Text('Настройки'),
+
             ),
           ],
         ),
