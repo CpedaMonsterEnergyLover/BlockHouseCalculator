@@ -5,8 +5,8 @@ import 'package:block_house_calculator/pages/objects/wall.dart';
 class Floor {
   int index;
   List<Wall> walls =[]   ; // выглядит как смайлик, смешно? я смеялся.
-  List<int> doors =[]   ;
-  List<int> windows =[]   ;
+  List<Wall> doors =[]   ;
+  List<Wall> windows =[]   ;
 
 
   String getName(){
@@ -23,6 +23,10 @@ class Floor {
 
   addWall(int value) {
     walls.add(Wall(value));
+  }  addDoor(int value) {
+    doors.add(Wall(value));
+  }addWindow(int value) {
+    windows.add(Wall(value));
   }
 
   Map<String, dynamic> toJson(){

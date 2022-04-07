@@ -20,6 +20,7 @@ class House {
       int floorHeight,
       int doorHeight,
       int windowHeight);
+
   bool addFloor(){
     if(floors.length < 3){
       floors.add(Floor(floors.length));
