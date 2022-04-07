@@ -15,7 +15,7 @@ class IntegerInputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return           TextField(
       autofocus: false,
-      keyboardType:  const TextInputType.numberWithOptions(signed: false, decimal: true),
+      keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: false),
       decoration: InputDecoration(labelText: labelText + ": " + hintText + "мм", hintText: hintText),
       onSubmitted: (value) {
         callback(value);
