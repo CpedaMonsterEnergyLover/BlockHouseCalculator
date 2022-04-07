@@ -3,8 +3,5 @@ class Wall{
 
   Wall(this.length);
 
-  @override
-  String toString() {
-    return 'Wall{length: $length}';
-  }
+
 }

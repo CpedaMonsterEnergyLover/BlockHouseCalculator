@@ -38,6 +38,7 @@ class _FloorPageState extends State<FloorPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Стены
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -52,16 +53,16 @@ class _FloorPageState extends State<FloorPage> {
                         .asMap()
                         .map((index, e) => MapEntry(
                             index,
-                            SizeableFloorElement(
-                              key: ValueKey(index),
+                            FloorElementWall(
+                              key: ValueKey(e),
                               index: index,
                               text: "Длина",
-                              value: e,
+                              wall: e,
                               color: const Color(0xFFE5FBFF),
                               callback: (value) {
                                 setState( () {
-                                  floor.walls[index] = value;
-                                  value = e;
+                                  e.length = value;
+                                  // value = e;
                                 });
                               },
                               deleteCallback: () {
@@ -90,6 +91,7 @@ class _FloorPageState extends State<FloorPage> {
                 ),
               ),
             ),
+            // Двери
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -100,23 +102,47 @@ class _FloorPageState extends State<FloorPage> {
                 child: Column(
                   children: [
                     Text("Двери"),
-                    ...floor.doors.map((e) => SizeableFloorElement(
-                          index: floor.doors.length,
-                          text: "Ширина",
-                          value: e,
+                    ...floor.doors
+                        .asMap()
+                        .map((index, e) => MapEntry(
+                        index,
+                        FloorElementWall(
+                          key: ValueKey(e),
+                          index: index,
+                          text: "Ширина проема",
+                          wall: e,
                           color: const Color(0xFFE5FBFF),
-                          callback: (value) {},
-                          deleteCallback: (value) {},
-                        )),
+                          callback: (value) {
+                            setState( () {
+                              e.length = value;
+                              // value = e;
+                            });
+                          },
+                          deleteCallback: () {
+                            log('$index ${floor.doors[index]}', name: 'deleteCallback');
+
+                            setState(
+                                  () {
+                                floor.doors.removeAt(index);
+                              },
+                            );
+                          },
+                        )))
+                        .values,
                     GeneralButton(
-                      text: "Добавить Дверь",
-                      callback: () {},
+                      text: "Добавить двееерь",
+                      callback: () {
+                        setState(() {
+                          floor.addDoor(3);
+                        });
+                      },
                       longPressCallback: () {},
                     ),
                   ],
                 ),
               ),
             ),
+            //Окна
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
@@ -127,23 +153,47 @@ class _FloorPageState extends State<FloorPage> {
                 child: Column(
                   children: [
                     Text("Окна"),
-                    ...floor.windows.map((e) => SizeableFloorElement(
-                          index: floor.windows.length,
+                    ...floor.windows
+                        .asMap()
+                        .map((index, e) => MapEntry(
+                        index,
+                        FloorElementWall(
+                          key: ValueKey(e),
+                          index: index,
                           text: "Ширина",
-                          value: e,
+                          wall: e,
                           color: const Color(0xFFE5FBFF),
-                          callback: (value) {},
-                          deleteCallback: (value) {},
-                        )),
+                          callback: (value) {
+                            setState( () {
+                              e.length = value;
+                              // value = e;
+                            });
+                          },
+                          deleteCallback: () {
+                            log('$index ${floor.windows[index]}', name: 'deleteCallback');
+
+                            setState(
+                                  () {
+                                floor.windows.removeAt(index);
+                              },
+                            );
+                          },
+                        )))
+                        .values,
                     GeneralButton(
-                      text: "Добавить Окно",
-                      callback: () {},
+                      text: "Добавить окно",
+                      callback: () {
+                        setState(() {
+                          floor.addWindow(3);
+                        });
+                      },
                       longPressCallback: () {},
                     ),
                   ],
                 ),
               ),
             ),
+
           ],
         ),
       ),

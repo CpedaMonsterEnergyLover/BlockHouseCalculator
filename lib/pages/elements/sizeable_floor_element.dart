@@ -1,21 +1,22 @@
+import 'package:block_house_calculator/pages/objects/wall.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'double_input_field.dart';
 
-class SizeableFloorElement extends StatelessWidget {
+class FloorElementWall extends StatelessWidget {
   final String text;
-  final int value;
+  final Wall wall;
   final Function callback;
   Function deleteCallback;
   Color color;
   final int index;
 
-  SizeableFloorElement(
+  FloorElementWall(
       {Key? key,
       required this.index,
       required this.text,
-      required this.value,
+      required this.wall,
       required this.callback,
       this.color = const Color(0xFFCFFAFF),
       required this.deleteCallback})
@@ -26,7 +27,7 @@ class SizeableFloorElement extends StatelessWidget {
 
     var integerInputField = IntegerInputField(
         callback: callback,
-        hintText: value.toString(),
+        hintText: wall.length.toString(),
         labelText: text);
 
 
