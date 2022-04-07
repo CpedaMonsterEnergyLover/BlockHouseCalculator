@@ -16,6 +16,10 @@ class Floor {
   Floor(this.index);
   Floor.full(this.index, this.walls,this.doors, this.windows);
 
+  String calculate(){
+
+    return "XYU";
+  }
 
   addWall(int value) {
     walls.add(Wall(value));

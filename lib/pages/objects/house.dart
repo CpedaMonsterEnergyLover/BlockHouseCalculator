@@ -30,6 +30,10 @@ class House {
     }
   }
 
+  String calculate(){
+
+    return "XYU";
+  }
   void removeFloor(int index){
     floors.removeAt(index);
     for (var element in floors) {
