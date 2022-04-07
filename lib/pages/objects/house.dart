@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:block_house_calculator/pages/objects/constants.dart';
+
 import 'floor.dart';
 
 class HouseSettings {
@@ -42,10 +44,22 @@ class House {
     }
   }
 
-  String calculate(){
-
-    return "XYU";
+  int GetPerimeterWalls(){
+    int res = (settings.houseLength + settings.houseWidth) * 4
+    + ((settings.houseLength + settings.houseWidth) ~/ Constants.lagDistance) * settings.floorHeight;
+     return res;
   }
+
+
+
+  int calculate(){
+    int res = 0;
+    for (var element in floors) {
+      res += element.calculate();
+    }
+    return (res * Constants.plankWidth * Constants.plankHeight / 1000000000).ceil();
+  }
+
   void removeFloor(int index){
     floors.removeAt(index);
     for (var element in floors) {

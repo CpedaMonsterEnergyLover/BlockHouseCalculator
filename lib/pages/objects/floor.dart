@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:block_house_calculator/pages/objects/constants.dart';
 import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:block_house_calculator/pages/objects/wall.dart';
 
@@ -10,6 +11,30 @@ class Floor {
   List<Wall> windows =[]   ;
   HouseSettings settings;
 
+  int CalculateWalls(){
+    int res = 0;
+    for (var e in walls) {
+      res += e.length * 2 + e.length ~/ Constants.lagDistance;
+    }
+    return res;
+  }
+
+
+  int CalculateDoors(){
+    int res = 0;
+    for (var e in walls) {
+      res += e.length + settings.floorHeight * 2 ;
+    }
+    return res;
+  }
+
+  int CalculateWindows(){
+    int res = 0;
+    for (var e in walls) {
+      res += e.length * 2 + settings.floorHeight * 2 ;
+    }
+    return res;
+  }
 
   String getName(){
     return "Этаж " + (index + 1).toString();
@@ -18,9 +43,11 @@ class Floor {
   Floor(this.index, this.settings);
   Floor.full(this.index, this.walls,this.doors, this.windows, this.settings);
 
-  String calculate(){
-
-    return "XYU";
+  int calculate(){
+    int P = settings.houseLength * 2 + settings.houseWidth * 2;
+    int lagi = settings.houseWidth ~/ Constants.lagDistance * Constants.lagWidth;
+    int lagi2 = settings.houseLength ~/ Constants.lagDistance * Constants.lagWidth;
+    return P + lagi + lagi2 + CalculateWalls() + CalculateDoors() + CalculateWindows();
   }
 
   addWall(int value) {
