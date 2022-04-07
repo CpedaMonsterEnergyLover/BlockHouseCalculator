@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:block_house_calculator/pages/objects/wall.dart';
 
 class Floor {
@@ -7,14 +8,15 @@ class Floor {
   List<Wall> walls =[]   ; // выглядит как смайлик, смешно? я смеялся.
   List<Wall> doors =[]   ;
   List<Wall> windows =[]   ;
+  HouseSettings settings;
 
 
   String getName(){
     return "Этаж " + (index + 1).toString();
   }
 
-  Floor(this.index);
-  Floor.full(this.index, this.walls,this.doors, this.windows);
+  Floor(this.index, this.settings);
+  Floor.full(this.index, this.walls,this.doors, this.windows, this.settings);
 
   String calculate(){
 
@@ -45,7 +47,7 @@ class Floor {
   Floor fromJson(String json){
     Map<String, dynamic> map = jsonDecode(json);
     return Floor.full(
-      map["index"], map["doorsCount"],map["windowsCount"],map["walls"],
+      map["index"], map["doorsCount"],map["windowsCount"],map["walls"],map["settings"]
     );
   }
 }
