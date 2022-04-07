@@ -60,7 +60,7 @@ class _FloorPageState extends State<FloorPage> {
                               callback: (value) {
                                 setState( () {
                                   floor.walls[index] = value;
-                                  e = value;
+                                  value = e;
                                 });
                               },
                               deleteCallback: () {

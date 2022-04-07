@@ -1,8 +1,4 @@
-import 'package:block_house_calculator/pages/edit_house/house_page.dart';
-import 'package:block_house_calculator/pages/elements/dialog.dart';
-import 'package:block_house_calculator/pages/elements/general_button.dart';
 import 'package:block_house_calculator/pages/objects/constants.dart';
-import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -38,14 +34,17 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
         body: ListView(
           children: [
+            const Text("Стандартное значение: 6000"),
             IntegerInputField(labelText: "Ширина лагов", callback: (value) {
-          setState((){Constants.lagWidth = int.parse(value);});
+          setState((){Constants.lagWidth = value;});
         }, hintText: Constants.lagWidth.toString()),
-            IntegerInputField(labelText: "Ширина доски", callback: (value) {
-              setState((){Constants.plankWidth = int.parse(value);});
+            const Text("Стандартное значение: 25"),
+            IntegerInputField(labelText: "Ширина профиля", callback: (value) {
+              setState((){Constants.plankWidth = value;});
             }, hintText: Constants.plankWidth.toString()),
-            IntegerInputField(labelText: "Высота доски", callback: (value) {
-              setState((){Constants.plankHeight = int.parse(value);});
+            const Text("Стандартное значение: 100"),
+            IntegerInputField(labelText: "Высота профиля", callback: (value) {
+              setState((){Constants.plankHeight = value;});
             }, hintText: Constants.plankHeight.toString()),
 
 
