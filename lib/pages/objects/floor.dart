@@ -1,8 +1,10 @@
 import 'dart:convert';
 
+import 'package:block_house_calculator/pages/objects/wall.dart';
+
 class Floor {
   int index;
-  List<int> walls =[]   ; // выглядит как смайлик, смешно? я смеялся.
+  List<Wall> walls =[]   ; // выглядит как смайлик, смешно? я смеялся.
   List<int> doors =[]   ;
   List<int> windows =[]   ;
 
@@ -16,13 +18,13 @@ class Floor {
 
 
   addWall(int value) {
-    walls.add(value);
+    walls.add(Wall(value));
   }
 
   Map<String, dynamic> toJson(){
     Map<String, dynamic> json = {};
 
-
+  //TODO:переписать под объекты стен
     json = {
       "index": index,
       "doorsCount": doors,
