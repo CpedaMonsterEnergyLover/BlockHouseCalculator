@@ -20,7 +20,7 @@ class HousePage extends StatefulWidget {
 
 class _HousePageState extends State<HousePage> {
   bool floorBlock = true;
-
+  int kubometriDosok = 0;
   late House house;
 
   @override
@@ -109,6 +109,16 @@ class _HousePageState extends State<HousePage> {
           },
           longPressCallback: () {},
         ),
+        GeneralButton(
+          text: "Рассчитать",
+          callback: () {
+            setState((){
+              kubometriDosok = widget.house.calculate();
+            });
+          },
+          longPressCallback: () {},
+        ),
+        Text("Вам нужно " + kubometriDosok.toString() + " кубометров досок"),
         IntegerInputField(
           labelText: 'Длина дома',
           hintText: widget.house.settings.houseLength.toString(),
