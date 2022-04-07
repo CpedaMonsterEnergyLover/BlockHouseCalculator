@@ -23,6 +23,14 @@ class SizeableFloorElement extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var integerInputField = IntegerInputField(
+        callback: callback,
+        hintText: value.toString(),
+        labelText: text);
+
+
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -35,14 +43,11 @@ class SizeableFloorElement extends StatelessWidget {
             Expanded(
                 child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-              child: IntegerInputField(
-                  callback: callback,
-                  hintText: value.toString(),
-                  labelText: text),
-            )),
+              child:integerInputField)),
             IconButton(
                 onPressed: () {
                   deleteCallback();
+                  // integerInputField.clear();
                 },
                 icon: const Icon(Icons.delete)),
           ],

@@ -65,6 +65,7 @@ class _FloorPageState extends State<FloorPage> {
                               },
                               deleteCallback: () {
                                 log('$index ${floor.walls[index]}', name: 'deleteCallback');
+
                                 setState(
                                   () {
                                     floor.walls.removeAt(index);
