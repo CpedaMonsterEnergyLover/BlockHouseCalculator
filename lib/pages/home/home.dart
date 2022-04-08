@@ -29,11 +29,18 @@ class _HomePageState extends State<HomePage> {
           title: const Text("BlockHouseCalculator"),
         ),
         endDrawer: Drawer(
+
           child: Expanded(
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                const DrawerHeader(child: Text("watafak")),
+                const DrawerHeader(
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/images/planks.jpg"),
+                          fit: BoxFit.cover)
+                  ), child: SizedBox(width: 1, height:  1),
+                ),
                 TextButton(
                   onPressed: () {
                     Navigator.push(

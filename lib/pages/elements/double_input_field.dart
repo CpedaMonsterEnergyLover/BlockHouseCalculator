@@ -48,25 +48,30 @@ class _IntegerInputFieldState extends State<IntegerInputField> {
 
   @override
   Widget build(BuildContext context) {
-    return           TextField(
-      controller: _controller,
-      autofocus: false,
-      // focusNode: _focusNode,
-      keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: false),
-      decoration: InputDecoration(
-          labelText: widget.labelText + ": " + widget.hintText + widget.unit,
-          hintText: widget.hintText,
-          errorText: errorText == '' ? null : errorText),
+    return           Padding(
+      padding: const EdgeInsets.fromLTRB(0, 3, 0, 3),
+      child: TextField(
+        controller: _controller,
+        autofocus: false,
+        // focusNode: _focusNode,
 
-      onChanged: (value) {
-        onSubmit(value);
-      },
-      onSubmitted: (value) {
-        onSubmit(value);
-        _controller.clear();
+        keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: false),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(8), gapPadding: 5),
+            labelText: widget.labelText + ": " + widget.hintText + widget.unit,
+            hintText: widget.hintText,
+            errorText: errorText == '' ? null : errorText),
 
-      },
+        onChanged: (value) {
+          onSubmit(value);
+        },
+        onSubmitted: (value) {
+          onSubmit(value);
+          _controller.clear();
 
+        },
+
+      ),
     );
   }
 }
