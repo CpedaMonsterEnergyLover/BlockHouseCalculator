@@ -3,6 +3,7 @@ import 'package:block_house_calculator/pages/edit_roof/roof_page.dart';
 import 'package:block_house_calculator/pages/elements/double_input_field.dart';
 import 'package:block_house_calculator/pages/elements/general_button.dart';
 import 'package:block_house_calculator/pages/elements/dialog.dart';
+import 'package:block_house_calculator/pages/objects/constants.dart';
 import 'package:block_house_calculator/pages/objects/house.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -128,8 +129,11 @@ class _HousePageState extends State<HousePage> {
                   longPressCallback: () {},
                 ),
                 Text("Всего вам нужно " +
-                    kubometriDosok.toString() +
+                    kubometriDosok.toStringAsFixed(2) +
                     " кубометров досок"),
+                Text("Или " +
+                    (kubometriDosok * Constants.unitPrice).toStringAsFixed(2) +
+                    " руб."),
               ],
             ),
           ),

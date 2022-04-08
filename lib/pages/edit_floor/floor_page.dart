@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:block_house_calculator/pages/elements/general_button.dart';
 import 'package:block_house_calculator/pages/elements/sizeable_floor_element.dart';
+import 'package:block_house_calculator/pages/objects/constants.dart';
 import 'package:block_house_calculator/pages/objects/floor.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -51,13 +52,19 @@ class _FloorPageState extends State<FloorPage> {
                     GeneralButton(
                       text: "Рассчитать",
                       callback: () {
-                        setState((){
+                        setState(() {
                           kubometriDosok = widget.floor.calculate();
                         });
                       },
                       longPressCallback: () {},
                     ),
-                    Text("Всего вам нужно " + kubometriDosok.toString() + " кубометров досок на этот этаж"),
+                    Text("Всего вам нужно " +
+                        kubometriDosok.toStringAsFixed(2) +
+                        " кубометров досок на этот этаж"),
+                    Text("Или " +
+                        (kubometriDosok * Constants.unitPrice)
+                            .toStringAsFixed(2) +
+                        " руб."),
                   ],
                 ),
               ),
@@ -85,13 +92,14 @@ class _FloorPageState extends State<FloorPage> {
                               wall: e,
                               color: const Color(0xFFE5FBFF),
                               callback: (value) {
-                                setState( () {
+                                setState(() {
                                   e.length = value;
                                   // value = e;
                                 });
                               },
                               deleteCallback: () {
-                                log('$index ${floor.walls[index]}', name: 'deleteCallback');
+                                log('$index ${floor.walls[index]}',
+                                    name: 'deleteCallback');
 
                                 setState(
                                   () {
@@ -130,29 +138,30 @@ class _FloorPageState extends State<FloorPage> {
                     ...floor.doors
                         .asMap()
                         .map((index, e) => MapEntry(
-                        index,
-                        FloorElementWall(
-                          key: ValueKey(e),
-                          index: index,
-                          text: "Ширина проема",
-                          wall: e,
-                          color: const Color(0xFFE5FBFF),
-                          callback: (value) {
-                            setState( () {
-                              e.length = value;
-                              // value = e;
-                            });
-                          },
-                          deleteCallback: () {
-                            log('$index ${floor.doors[index]}', name: 'deleteCallback');
-
-                            setState(
-                                  () {
-                                floor.doors.removeAt(index);
+                            index,
+                            FloorElementWall(
+                              key: ValueKey(e),
+                              index: index,
+                              text: "Ширина проема",
+                              wall: e,
+                              color: const Color(0xFFE5FBFF),
+                              callback: (value) {
+                                setState(() {
+                                  e.length = value;
+                                  // value = e;
+                                });
                               },
-                            );
-                          },
-                        )))
+                              deleteCallback: () {
+                                log('$index ${floor.doors[index]}',
+                                    name: 'deleteCallback');
+
+                                setState(
+                                  () {
+                                    floor.doors.removeAt(index);
+                                  },
+                                );
+                              },
+                            )))
                         .values,
                     GeneralButton(
                       text: "Добавить двееерь",
@@ -181,29 +190,30 @@ class _FloorPageState extends State<FloorPage> {
                     ...floor.windows
                         .asMap()
                         .map((index, e) => MapEntry(
-                        index,
-                        FloorElementWall(
-                          key: ValueKey(e),
-                          index: index,
-                          text: "Ширина",
-                          wall: e,
-                          color: const Color(0xFFE5FBFF),
-                          callback: (value) {
-                            setState( () {
-                              e.length = value;
-                              // value = e;
-                            });
-                          },
-                          deleteCallback: () {
-                            log('$index ${floor.windows[index]}', name: 'deleteCallback');
-
-                            setState(
-                                  () {
-                                floor.windows.removeAt(index);
+                            index,
+                            FloorElementWall(
+                              key: ValueKey(e),
+                              index: index,
+                              text: "Ширина",
+                              wall: e,
+                              color: const Color(0xFFE5FBFF),
+                              callback: (value) {
+                                setState(() {
+                                  e.length = value;
+                                  // value = e;
+                                });
                               },
-                            );
-                          },
-                        )))
+                              deleteCallback: () {
+                                log('$index ${floor.windows[index]}',
+                                    name: 'deleteCallback');
+
+                                setState(
+                                  () {
+                                    floor.windows.removeAt(index);
+                                  },
+                                );
+                              },
+                            )))
                         .values,
                     GeneralButton(
                       text: "Добавить окно",
@@ -218,7 +228,6 @@ class _FloorPageState extends State<FloorPage> {
                 ),
               ),
             ),
-
           ],
         ),
       ),
