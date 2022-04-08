@@ -27,6 +27,12 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_launcher_icons: ^0.7.4
+flutter_icons:
+  android: true
+  ios: true
+  image_path_android: "assets/images/homik.jpg"
+  image_path_ios: "assets/images/homik.jpg"
   flame: 1.0.0
   flutter:
     sdk: flutter
