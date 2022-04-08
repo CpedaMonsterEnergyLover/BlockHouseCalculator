@@ -68,6 +68,29 @@ class _SettingsPageState extends State<SettingsPage> {
           const Text("Стандартное значение: 100"),
           const SizedBox(height: 10),
 
+          IntegerInputField(
+              labelText: "Ширина между лагами",
+              callback: (value) {
+                setState(() {
+                  Constants.lagDistance = value;
+                });
+              },
+              hintText: Constants.lagDistance.toString()),
+          const Text("Стандартное значение: 580"),
+          const SizedBox(height: 10),
+
+          IntegerInputField(
+              labelText: "Цена за кубометр пиломатериала",
+              unit: "руб",
+              callback: (value) {
+                setState(() {
+                  Constants.unitPrice = value;
+                });
+              },
+              hintText: Constants.unitPrice.toString()),
+          const Text("Стандартное значение: 22000"),
+          const SizedBox(height: 10),
+
 
         ],
       ),

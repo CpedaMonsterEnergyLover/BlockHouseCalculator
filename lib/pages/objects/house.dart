@@ -5,15 +5,13 @@ import 'package:block_house_calculator/pages/objects/constants.dart';
 import 'floor.dart';
 
 class HouseSettings {
-  int houseWidth = 0;
-  int houseLength = 0;
-  int opletkaHeight = 0;
-  int floorHeight = 0;
-  int doorHeight = 0;
-  int windowHeight = 0;
-
-  HouseSettings(this.houseWidth, this.houseLength, this.opletkaHeight,
-      this.floorHeight, this.doorHeight, this.windowHeight);
+  int houseWidth = 10000;
+  int houseLength = 15000;
+  int opletkaHeight = 3;
+  int floorHeight = 3000;
+  int doorHeight = 2500;
+  int windowHeight = 2000;
+  HouseSettings();
 }
 
 class House {
@@ -22,7 +20,7 @@ class House {
 
   String name = "Новый дом";
   List<Floor> floors = [];
-  HouseSettings settings = HouseSettings(0, 0, 0, 0, 0, 0);
+  HouseSettings settings = HouseSettings();
 
   House();
   House.full(String name, 
