@@ -39,16 +39,30 @@ class _FloorPageState extends State<FloorPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            GeneralButton(
-              text: "Рассчитать",
-              callback: () {
-                setState((){
-                  kubometriDosok = widget.floor.calculate();
-                });
-              },
-              longPressCallback: () {},
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: Colors.black12),
+                ),
+                child: Column(
+                  children: [
+                    GeneralButton(
+                      text: "Рассчитать",
+                      callback: () {
+                        setState((){
+                          kubometriDosok = widget.floor.calculate();
+                        });
+                      },
+                      longPressCallback: () {},
+                    ),
+                    Text("Всего вам нужно " + kubometriDosok.toString() + " кубометров досок на этот этаж"),
+                  ],
+                ),
+              ),
             ),
-            Text("Всего вам нужно " + kubometriDosok.toString() + " кубометров досок на этот этаж"),
+
             // Стены
             Padding(
               padding: const EdgeInsets.all(8.0),

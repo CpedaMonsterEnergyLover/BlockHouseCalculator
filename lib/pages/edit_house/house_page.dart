@@ -109,16 +109,29 @@ class _HousePageState extends State<HousePage> {
           },
           longPressCallback: () {},
         ),
-        GeneralButton(
-          text: "Рассчитать",
-          callback: () {
-            setState((){
-              kubometriDosok = widget.house.calculate();
-            });
-          },
-          longPressCallback: () {},
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(color: Colors.black12),
+            ),
+            child: Column(
+              children: [
+                GeneralButton(
+                  text: "Рассчитать",
+                  callback: () {
+                    setState((){
+                      kubometriDosok = widget.house.calculate();
+                    });
+                  },
+                  longPressCallback: () {},
+                ),
+                Text("Всего вам нужно " + kubometriDosok.toString() + " кубометров досок"),
+              ],
+            ),
+          ),
         ),
-        Text("Всего вам нужно " + kubometriDosok.toString() + " кубометров досок"),
         IntegerInputField(
           labelText: 'Длина дома',
           hintText: widget.house.settings.houseLength.toString(),
