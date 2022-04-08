@@ -117,11 +117,6 @@ class _HomePageState extends State<HomePage> {
               },
               longPressCallback: () {},
             ),
-            GeneralButton(
-              text: "Пример",
-              callback: () {},
-              longPressCallback: () {},
-            )
           ],
         ));
   }
