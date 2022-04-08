@@ -44,20 +44,20 @@ class House {
     }
   }
 
-  int GetPerimeterWalls(){
-    int res = (settings.houseLength + settings.houseWidth) * 4
-    + ((settings.houseLength + settings.houseWidth) ~/ Constants.lagDistance) * settings.floorHeight;
+  double getPerimeterWalls(){
+    double res = ((settings.houseLength + settings.houseWidth) * 4
+    + ((settings.houseLength + settings.houseWidth) ~/ Constants.lagDistance) * settings.floorHeight) as double;
      return res;
   }
 
 
 
-  int calculate(){
-    int res = 0;
+  double calculate(){
+    double res = 0;
     for (var element in floors) {
       res += element.calculate();
     }
-    return (res * Constants.plankWidth * Constants.plankHeight / 1000000000).ceil();
+    return res;
   }
 
   void removeFloor(int index){

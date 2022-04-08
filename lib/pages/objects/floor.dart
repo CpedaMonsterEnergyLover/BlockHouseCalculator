@@ -11,8 +11,8 @@ class Floor {
   List<Wall> windows =[]   ;
   HouseSettings settings;
 
-  int CalculateWalls(){
-    int res = 0;
+  double CalculateWalls(){
+    double res = 0;
     for (var e in walls) {
       res += e.length * 2 + e.length ~/ Constants.lagDistance;
     }
@@ -20,16 +20,16 @@ class Floor {
   }
 
 
-  int CalculateDoors(){
-    int res = 0;
+  double CalculateDoors(){
+    double res = 0;
     for (var e in walls) {
       res += e.length + settings.floorHeight * 2 ;
     }
     return res;
   }
 
-  int CalculateWindows(){
-    int res = 0;
+  double CalculateWindows(){
+    double res = 0;
     for (var e in walls) {
       res += e.length * 2 + settings.floorHeight * 2 ;
     }
@@ -43,11 +43,11 @@ class Floor {
   Floor(this.index, this.settings);
   Floor.full(this.index, this.walls,this.doors, this.windows, this.settings);
 
-  int calculate(){
+  double calculate(){
     int P = settings.houseLength * 2 + settings.houseWidth * 2;
     int lagi = settings.houseWidth ~/ Constants.lagDistance * Constants.lagWidth;
     int lagi2 = settings.houseLength ~/ Constants.lagDistance * Constants.lagWidth;
-    return P + lagi + lagi2 + CalculateWalls() + CalculateDoors() + CalculateWindows();
+    return ((P + lagi + lagi2 + CalculateWalls() + CalculateDoors() + CalculateWindows()) / 1000000000) * Constants.plankWidth * Constants.plankHeight;
   }
 
   addWall(int value) {

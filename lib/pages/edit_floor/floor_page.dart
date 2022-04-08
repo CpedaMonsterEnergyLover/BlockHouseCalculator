@@ -17,6 +17,7 @@ class FloorPage extends StatefulWidget {
 
 class _FloorPageState extends State<FloorPage> {
   late Floor floor;
+  double kubometriDosok = 0;
 
   @override
   void initState() {
@@ -38,6 +39,16 @@ class _FloorPageState extends State<FloorPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            GeneralButton(
+              text: "Рассчитать",
+              callback: () {
+                setState((){
+                  kubometriDosok = widget.floor.calculate();
+                });
+              },
+              longPressCallback: () {},
+            ),
+            Text("Всего вам нужно " + kubometriDosok.toString() + " кубометров досок на этот этаж"),
             // Стены
             Padding(
               padding: const EdgeInsets.all(8.0),
