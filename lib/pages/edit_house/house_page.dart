@@ -136,71 +136,63 @@ class _HousePageState extends State<HousePage> {
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              border: Border.all(color: Colors.black12),
-            ),
-            child: Column(
-              children: [
-                Container(
-                  child: IntegerInputField(
-                    labelText: 'Длина дома',
-                    hintText: widget.house.settings.houseLength.toString(),
-                    callback: (value) {
-                      setState(() {
-                        widget.house.settings.houseLength = value;
-                      });
-                    },
-                  ),
-                ),
-                IntegerInputField(
-                  labelText: 'Ширина дома',
-                  hintText: widget.house.settings.houseWidth.toString(),
-                  callback: (value) {
-                    setState(() {
-                      widget.house.settings.houseWidth = value;
-                    });
-                  },
-                ),
-                IntegerInputField(
-                  labelText: 'Высота этажей',
-                  hintText: widget.house.settings.floorHeight.toString(),
-                  callback: (value) {
-                    setState(() {
-                      widget.house.settings.floorHeight = value;
-                    });
-                  },
-                ),
-                IntegerInputField(
-                  labelText: 'Высота дверных проемов',
-                  hintText: widget.house.settings.doorHeight.toString(),
-                  callback: (value) {
-                    setState(() {
-                      widget.house.settings.doorHeight = value;
-                    });
-                  },
-                ),
-                IntegerInputField(
-                  labelText: 'Высота оконных проемов',
-                  hintText: widget.house.settings.windowHeight.toString(),
-                  callback: (value) {
-                    setState(() {
-                      widget.house.settings.windowHeight = value;
-                    });
-                  },
-                ),
-                IntegerInputField(
-                  labelText: 'Высота оплётки',
-                  hintText: widget.house.settings.opletkaHeight.toString(),
-                  callback: (value) {
-                    setState(() {
-                      widget.house.settings.opletkaHeight = value;
-                    });
-                  },
-                )
-              ],
-            ),
+          child: Column(
+            children: [
+              IntegerInputField(
+                labelText: 'Длина дома',
+                hintText: widget.house.settings.houseLength.toString(),
+                callback: (value) {
+                  setState(() {
+                    widget.house.settings.houseLength = value;
+                  });
+                },
+              ),
+              IntegerInputField(
+                labelText: 'Ширина дома',
+                hintText: widget.house.settings.houseWidth.toString(),
+                callback: (value) {
+                  setState(() {
+                    widget.house.settings.houseWidth = value;
+                  });
+                },
+              ),
+              IntegerInputField(
+                labelText: 'Высота этажей',
+                hintText: widget.house.settings.floorHeight.toString(),
+                callback: (value) {
+                  setState(() {
+                    widget.house.settings.floorHeight = value;
+                  });
+                },
+              ),
+              IntegerInputField(
+                labelText: 'Высота дверных проемов',
+                hintText: widget.house.settings.doorHeight.toString(),
+                callback: (value) {
+                  setState(() {
+                    widget.house.settings.doorHeight = value;
+                  });
+                },
+              ),
+              IntegerInputField(
+                labelText: 'Высота оконных проемов',
+                hintText: widget.house.settings.windowHeight.toString(),
+                callback: (value) {
+                  setState(() {
+                    widget.house.settings.windowHeight = value;
+                  });
+                },
+              ),
+              IntegerInputField(
+                labelText: 'Высота оплётки',
+                hintText: widget.house.settings.opletkaHeight.toString(),
+                callback: (value) {
+                  setState(() {
+                    widget.house.settings.opletkaHeight = value;
+                  });
+                },
+              )
+            ],
           ),
         ),
       ]),
