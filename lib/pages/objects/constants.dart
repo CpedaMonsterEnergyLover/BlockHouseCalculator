@@ -3,9 +3,5 @@ class Constants{
   static int plankWidth = 25;
   static int plankHeight = 100;
   static int lagDistance = 580;
-
-  @override
-  String toString() {
-    return 'Constants{lagWidth: $lagWidth}';
-  }
+  static int unitPrice = 22000;
 }

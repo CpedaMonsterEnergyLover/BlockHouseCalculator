@@ -6,8 +6,10 @@ class IntegerInputField extends StatefulWidget {
   final String labelText;
   final String hintText;
   final Function callback;
+  String unit;
 
-  const IntegerInputField({Key? key, required this.labelText, required this.callback, required this.hintText})
+  IntegerInputField({Key? key, required this.labelText, required this.callback, required this.hintText,
+    this.unit = "мм"})
       : super(key: key);
 
   @override
@@ -52,7 +54,7 @@ class _IntegerInputFieldState extends State<IntegerInputField> {
       // focusNode: _focusNode,
       keyboardType:  const TextInputType.numberWithOptions(signed: true, decimal: false),
       decoration: InputDecoration(
-          labelText: widget.labelText + ": " + widget.hintText + "мм",
+          labelText: widget.labelText + ": " + widget.hintText + widget.unit,
           hintText: widget.hintText,
           errorText: errorText == '' ? null : errorText),
 
