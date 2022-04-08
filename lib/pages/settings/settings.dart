@@ -5,6 +5,8 @@ import 'package:flutter/widgets.dart';
 import 'package:block_house_calculator/pages/elements/double_input_field.dart';
 
 class SettingsPage extends StatefulWidget {
+  const SettingsPage({Key? key}) : super(key: key);
+
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 }
@@ -55,8 +57,6 @@ class _SettingsPageState extends State<SettingsPage> {
               hintText: Constants.plankWidth.toString()),
           const Text("Стандартное значение: 25"),
           const SizedBox(height: 10),
-
-
           IntegerInputField(
               labelText: "Высота профиля",
               callback: (value) {
@@ -67,7 +67,6 @@ class _SettingsPageState extends State<SettingsPage> {
               hintText: Constants.plankHeight.toString()),
           const Text("Стандартное значение: 100"),
           const SizedBox(height: 10),
-
           IntegerInputField(
               labelText: "Ширина между лагами",
               callback: (value) {
@@ -78,7 +77,6 @@ class _SettingsPageState extends State<SettingsPage> {
               hintText: Constants.lagDistance.toString()),
           const Text("Стандартное значение: 580"),
           const SizedBox(height: 10),
-
           IntegerInputField(
               labelText: "Цена за кубометр пиломатериала",
               unit: "руб",
@@ -90,8 +88,6 @@ class _SettingsPageState extends State<SettingsPage> {
               hintText: Constants.unitPrice.toString()),
           const Text("Стандартное значение: 22000"),
           const SizedBox(height: 10),
-
-
         ],
       ),
     );

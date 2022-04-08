@@ -1,7 +1,5 @@
-class Wall{
+class Wall {
   int length;
 
   Wall(this.length);
-
-
 }

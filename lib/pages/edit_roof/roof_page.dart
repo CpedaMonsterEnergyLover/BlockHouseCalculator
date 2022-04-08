@@ -9,7 +9,7 @@ class RoofPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Настройка крыши"),
-        leading:  IconButton(
+        leading: IconButton(
           icon: const Icon(Icons.keyboard_arrow_left),
           onPressed: () {
             Navigator.pop(context);
@@ -19,5 +19,4 @@ class RoofPage extends StatelessWidget {
       body: const Text("Написать страницу"),
     );
   }
-
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'double_input_field.dart';
 
-class FloorElementWall extends StatelessWidget {
+class FloorElementWall extends StatefulWidget {
   final String text;
   final Wall wall;
   final Function callback;
@@ -23,32 +23,31 @@ class FloorElementWall extends StatelessWidget {
       : super(key: key);
 
   @override
+  State<FloorElementWall> createState() => _FloorElementWallState();
+}
+
+class _FloorElementWallState extends State<FloorElementWall> {
+  @override
   Widget build(BuildContext context) {
-
     var integerInputField = IntegerInputField(
-        callback: callback,
-        hintText: wall.length.toString(),
-        labelText: text);
-
-
+        callback: widget.callback, hintText: widget.wall.length.toString(), labelText: widget.text);
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: color,
+          color: widget.color,
         ),
         child: Row(
           children: [
             Expanded(
                 child: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
-              child:integerInputField)),
+                    padding: const EdgeInsets.fromLTRB(0, 0, 0, 8),
+                    child: integerInputField)),
             IconButton(
                 onPressed: () {
-                  deleteCallback();
-                  // integerInputField.clear();
+                  widget.deleteCallback();
                 },
                 icon: const Icon(Icons.delete)),
           ],

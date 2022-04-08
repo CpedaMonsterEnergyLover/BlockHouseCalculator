@@ -19,34 +19,34 @@ class AboutPage extends StatelessWidget {
       body: ListView(
         children: const [
           Center(
-            
             child: Padding(
               padding: EdgeInsets.all(8.0),
               child: Text("Приложение разработано студентами ФСПО ИТМО:"),
             ),
           ),
-          Padding(child:Text("Владимир Ягнаев"),
-          padding: EdgeInsets.fromLTRB(80,8,80,8),),
           Padding(
-
+            child: Text("Владимир Ягнаев"),
+            padding: EdgeInsets.fromLTRB(80, 8, 80, 8),
+          ),
+          Padding(
             padding: EdgeInsets.fromLTRB(80, 0, 80, 80),
             child: Image(
                 image: AssetImage("assets/images/cat.jpg"),
                 fit: BoxFit.cover,
                 width: double.infinity),
           ),
-          Padding(child:Text("Максим Юрьевич"),
-          padding: EdgeInsets.fromLTRB(80,8,80,8)),
+          Padding(
+              child: Text("Максим Юрьевич"),
+              padding: EdgeInsets.fromLTRB(80, 8, 80, 8)),
           Padding(
             padding: EdgeInsets.fromLTRB(80, 0, 80, 80),
             child: Image(
-                image: AssetImage("assets/images/dog.jpg"),
-                fit: BoxFit.cover,
-                width: double.infinity,
-                //height: ,
+              image: AssetImage("assets/images/dog.jpg"),
+              fit: BoxFit.cover,
+              width: double.infinity,
+              //height: ,
             ),
           ),
-
         ],
       ),
     );

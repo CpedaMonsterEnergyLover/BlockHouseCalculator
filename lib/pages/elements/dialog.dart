@@ -4,25 +4,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AbcDialog {
-
-  static Future<String> inputDialog(BuildContext context, House house, String title) async {
+  static Future<String> inputDialog(
+      BuildContext context, House house, String title) async {
     String newName = house.name;
     newName = await showDialog(
       context: context,
-      barrierDismissible: false, // dialog is dismissible with a tap on the barrier
+      barrierDismissible: false,
       builder: (BuildContext context) {
         return AlertDialog(
-          title:  Text(title),
+          title: Text(title),
           content: Row(
             children: <Widget>[
               Expanded(
                   child: TextField(
-                    autofocus: true,
-                    decoration: InputDecoration(labelText: 'Название дома', hintText: house.name),
-                    onChanged: (value) {
-                      newName = value;
-                    },
-                  ))
+                autofocus: true,
+                decoration: InputDecoration(
+                    labelText: 'Название дома', hintText: house.name),
+                onChanged: (value) {
+                  newName = value;
+                },
+              ))
             ],
           ),
           actions: <Widget>[
@@ -39,10 +40,13 @@ class AbcDialog {
     return newName;
   }
 
-
-
-  static void buildConfirmDialog(BuildContext context, String title, String subtitle,
-      String textButton, String textButton1 , VoidCallback callback) {
+  static void buildConfirmDialog(
+      BuildContext context,
+      String title,
+      String subtitle,
+      String textButton,
+      String textButton1,
+      VoidCallback callback) {
     showDialog(
         useSafeArea: false,
         context: context,
@@ -81,16 +85,15 @@ class AbcDialog {
                       padding: const EdgeInsets.fromLTRB(16, 0, 16, 0),
                       child: Material(
                         color: Colors.white,
-                          child: GeneralButton(
-                              text: textButton,
-                              callback: () {
-                                callback();
-                                Navigator.pop(context);
-                              },
-                              longPressCallback: () {},
-                          color: Colors.green.shade400
-                          ),
-                    ),
+                        child: GeneralButton(
+                            text: textButton,
+                            callback: () {
+                              callback();
+                              Navigator.pop(context);
+                            },
+                            longPressCallback: () {},
+                            color: Colors.green.shade400),
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
@@ -102,8 +105,7 @@ class AbcDialog {
                               Navigator.pop(context);
                             },
                             longPressCallback: () {},
-                        color: Colors.red.shade400
-                        ),
+                            color: Colors.red.shade400),
                       ),
                     )
                   ],

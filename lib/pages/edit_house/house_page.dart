@@ -1,5 +1,4 @@
 import 'package:block_house_calculator/pages/edit_floor/floor_page.dart';
-import 'package:block_house_calculator/pages/edit_roof/roof_page.dart';
 import 'package:block_house_calculator/pages/elements/double_input_field.dart';
 import 'package:block_house_calculator/pages/elements/general_button.dart';
 import 'package:block_house_calculator/pages/elements/dialog.dart';
@@ -103,8 +102,7 @@ class _HousePageState extends State<HousePage> {
         GeneralButton(
           text: "Настроить крышу",
           color: Colors.grey.shade300,
-          callback: () {
-          },
+          callback: () {},
           longPressCallback: () {},
         ),
         Padding(
