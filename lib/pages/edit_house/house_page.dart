@@ -102,11 +102,8 @@ class _HousePageState extends State<HousePage> {
         ),
         GeneralButton(
           text: "Настроить крышу",
+          color: Colors.grey.shade300,
           callback: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const RoofPage()),
-            );
           },
           longPressCallback: () {},
         ),
@@ -130,7 +127,7 @@ class _HousePageState extends State<HousePage> {
                 ),
                 Text("Всего вам нужно " +
                     kubometriDosok.toStringAsFixed(2) +
-                    " кубометров досок"),
+                    "м\u00b3 пиломатериала"),
                 Text("Или " +
                     (kubometriDosok * Constants.unitPrice).toStringAsFixed(2) +
                     " руб."),

@@ -60,7 +60,7 @@ class _FloorPageState extends State<FloorPage> {
                     ),
                     Text("Всего вам нужно " +
                         kubometriDosok.toStringAsFixed(2) +
-                        " кубометров досок на этот этаж"),
+                        "м\u00b3 пиломатериала на этот этаж"),
                     Text("Или " +
                         (kubometriDosok * Constants.unitPrice)
                             .toStringAsFixed(2) +
@@ -112,10 +112,8 @@ class _FloorPageState extends State<FloorPage> {
                     GeneralButton(
                       text: "Добавить Стену",
                       callback: () {
-                        // log('test');
-                        // log('${floor.walls}');
                         setState(() {
-                          floor.addWall(3);
+                          floor.addWall(floor.settings.houseWidth);
                         });
                       },
                       longPressCallback: () {},
@@ -164,10 +162,10 @@ class _FloorPageState extends State<FloorPage> {
                             )))
                         .values,
                     GeneralButton(
-                      text: "Добавить двееерь",
+                      text: "Добавить дверь",
                       callback: () {
                         setState(() {
-                          floor.addDoor(3);
+                          floor.addDoor(1000);
                         });
                       },
                       longPressCallback: () {},
@@ -219,7 +217,7 @@ class _FloorPageState extends State<FloorPage> {
                       text: "Добавить окно",
                       callback: () {
                         setState(() {
-                          floor.addWindow(3);
+                          floor.addWindow(2000);
                         });
                       },
                       longPressCallback: () {},
